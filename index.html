@@ -13,11 +13,13 @@ body{margin:0;background:var(--surface);-webkit-font-smoothing:antialiased}
 a{color:var(--ink)}
 .inf-topics{margin:0;padding:0;list-style:none;border-top:var(--hairline) solid var(--line)}
 .inf-topic{padding:var(--space-4) 0;border-bottom:var(--hairline) solid var(--line);font-family:var(--font-sans);font-size:17px;line-height:1.5;color:var(--ink)}
-.inf-premium{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-8);margin:var(--space-8) 0 0;padding:0;list-style:none}
+.inf-premium{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-12) var(--space-8);margin:var(--space-8) 0 0;padding:0;list-style:none}
 .inf-event{display:flex;flex-direction:column;gap:var(--space-3);margin:0}
-.inf-event__media{display:block;aspect-ratio:16/10;overflow:hidden;border-radius:var(--radius-sm);background:var(--surface-raised);margin-bottom:var(--space-3)}
+.inf-event__media{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:var(--space-2);aspect-ratio:16/10;margin-bottom:var(--space-3);text-decoration:none}
+.inf-event__media span{display:block;overflow:hidden;border-radius:var(--radius-sm);background:var(--surface-raised)}
+.inf-event__media span:first-child{grid-row:1 / span 2}
 .inf-event__media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.inf-event:hover .inf-event__media img{transform:scale(1.02)}
+.inf-event:hover .inf-event__media img{transform:scale(1.03)}
 .inf-event__meta{margin:0;font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--accent)}
 .inf-event__title{margin:0;font-family:var(--font-serif);font-size:32px;font-weight:400;line-height:1.15;letter-spacing:-0.01em;color:var(--ink)}
 .inf-event__body{margin:0;max-width:52ch;font-family:var(--font-sans);font-size:16px;line-height:1.55;color:var(--ink-muted)}
@@ -93,30 +95,6 @@ a{color:var(--ink)}
 </div>
 </div>
 </section>
-
-<div class="inf-container">
-<section class="inf-section" id="proximos" aria-labelledby="proximos-titulo">
-<h2 class="inf-heading" id="proximos-titulo">Conoce nuestros próximos eventos premium</h2>
-<ul class="inf-premium">
-<li class="inf-event">
-<a class="inf-event__media" href="https://www.aiyaiyai.io" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/img/panel.jpg" width="1860" height="1064" alt=""></a>
-<p class="inf-event__meta">19 de noviembre de 2026 · Bogotá</p>
-<h3 class="inf-event__title">Evento y cena privada en Bogotá</h3>
-<p class="inf-event__body">Un día de charlas, fireside chat y workshop con Alexander Torrenegra, Tania Zapata y Alan Argüello. Cierra con una cena privada para 20 personas.</p>
-<ul class="inf-event__facts"><li>10 a. m. a 3 p. m.</li><li>Cena 7 p. m.</li><li>Presencial</li></ul>
-<a class="inf-btn inf-btn--primary" href="https://www.aiyaiyai.io" target="_blank" rel="noopener">Ver evento en Bogotá</a>
-</li>
-<li class="inf-event">
-<a class="inf-event__media" href="silicon-valley/" tabindex="-1" aria-hidden="true"><img src="assets/img/napa-sala.jpg" width="1600" height="1067" alt=""></a>
-<p class="inf-event__meta">Enero de 2027 · San Francisco</p>
-<h3 class="inf-event__title">Silicon Valley Immersion 2027</h3>
-<p class="inf-event__body">Una semana viviendo en una casa en San Francisco con otros builders, visitando las empresas que están construyendo el futuro.</p>
-<ul class="inf-event__facts"><li>1 semana</li><li>18 lugares</li><li>Early bird hasta el 16 de noviembre</li></ul>
-<a class="inf-btn inf-btn--secondary" href="silicon-valley/">Ver Silicon Valley Immersion</a>
-</li>
-</ul>
-</section>
-</div>
 
 <div class="inf-container">
 <section class="inf-section" id="que-incluye">
@@ -262,6 +240,28 @@ a{color:var(--ink)}
 </div>
 </form>
 </div>
+</section>
+
+<section class="inf-section" id="proximos" aria-labelledby="proximos-titulo">
+<h2 class="inf-heading" id="proximos-titulo">Conoce nuestros próximos eventos premium</h2>
+<ul class="inf-premium">
+<li class="inf-event">
+<a class="inf-event__media" href="https://www.aiyaiyai.io" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span><img src="assets/img/bogota-skyline.jpg" width="1200" height="800" alt=""></span><span><img src="assets/img/bogota-monserrate.jpg" width="800" height="533" alt=""></span><span><img src="assets/img/bogota-candelaria.jpg" width="800" height="533" alt=""></span></a>
+<p class="inf-event__meta">Jueves 19 de noviembre de 2026 · Bogotá</p>
+<h3 class="inf-event__title">Evento en Bogotá</h3>
+<p class="inf-event__body">Un día para founders, managers y C-levels: charla, fireside chat y workshop con Alexander Torrenegra, Tania Zapata y Alan Argüello.</p>
+<ul class="inf-event__facts"><li>10 a. m. a 3 p. m.</li><li>Presencial</li><li>Cupo limitado</li></ul>
+<a class="inf-btn inf-btn--primary" href="https://www.aiyaiyai.io" target="_blank" rel="noopener">Ver evento en Bogotá</a>
+</li>
+<li class="inf-event">
+<a class="inf-event__media" href="silicon-valley/" tabindex="-1" aria-hidden="true"><span><img src="assets/img/sf-golden-gate.jpg" width="1200" height="800" alt=""></span><span><img src="assets/img/sf-painted-ladies.jpg" width="800" height="533" alt=""></span><span><img src="assets/img/sf-cable-car.jpg" width="800" height="533" alt=""></span></a>
+<p class="inf-event__meta">Enero de 2027 · San Francisco</p>
+<h3 class="inf-event__title">Silicon Valley Immersion 2027</h3>
+<p class="inf-event__body">Una semana viviendo en una casa en San Francisco con otros builders, visitando las empresas que están construyendo el futuro.</p>
+<ul class="inf-event__facts"><li>1 semana</li><li>18 lugares</li><li>Early bird hasta el 16 de noviembre</li></ul>
+<a class="inf-btn inf-btn--secondary" href="silicon-valley/">Ver Silicon Valley Immersion</a>
+</li>
+</ul>
 </section>
 
 <footer class="inf-footer">
