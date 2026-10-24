@@ -17,7 +17,10 @@ a{color:var(--ink)}
 .art-cover .inf-hero{padding-bottom:clamp(240px,26vw,400px)}
 .split-art{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-sm);margin-top:var(--space-2)}
 @media (max-width:800px){.art-cover::before{background:linear-gradient(180deg,var(--surface) 0%,rgba(244,245,242,.9) 45%,rgba(244,245,242,0) 75%)}.art-cover .inf-hero{padding-bottom:220px}}
-.art-cover--main::before{background:linear-gradient(180deg,var(--surface) 0%,rgba(244,245,242,.8) 25%,rgba(244,245,242,0) 55%)}
+.art-cover--main::before{display:none}
+.art-cover--main .art-cover__img{top:auto;bottom:0;height:540px;object-position:center 62%;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 38%);mask-image:linear-gradient(180deg,transparent 0%,#000 38%)}
+.art-cover--main .inf-hero{padding-bottom:440px}
+@media (max-width:800px){.art-cover--main .art-cover__img{height:340px}.art-cover--main .inf-hero{padding-bottom:260px}}
 .inf-topics{margin:0;padding:0;list-style:none;border-top:var(--hairline) solid var(--line)}
 .inf-topic{padding:var(--space-4) 0;border-bottom:var(--hairline) solid var(--line);font-family:var(--font-sans);font-size:17px;line-height:1.5;color:var(--ink)}
 @media (min-width:801px){.inf-feature{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:var(--space-2)}}
@@ -39,7 +42,7 @@ a{color:var(--ink)}
 <main class="inf-page" style="width: 100%">
 
 <div class="art-cover art-cover--main">
-<img class="art-cover__img" src="assets/img/desierto-v2.jpg" width="1182" height="780" alt="">
+<img class="art-cover__img" src="assets/img/starship.jpg" width="2576" height="1449" alt="">
 <div class="inf-container">
 <header class="inf-nav">
 <a class="inf-wordmark" href="#top" aria-label="Inference by Aiyaiyai, inicio"><span class="inf-wordmark__name">Inference<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">by Aiyaiyai</span></a>
@@ -71,23 +74,27 @@ a{color:var(--ink)}
 <div class="inf-marquee__track">
 <ul class="inf-marquee__group">
 <li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/encuentro.jpg" width="2000" height="1121" alt="Foto grupal de decenas de personas al final de un encuentro."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/latam-ai-summit.jpg" width="1795" height="1536" alt="Una speaker habla con micrófono frente a una pantalla que dice LATAM AI Summit."></li>
 <li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/panel.jpg" width="1860" height="1064" alt="Tres personas conversan sentadas en sillas de madera; una sostiene un micrófono."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/casa-sf.jpg" width="1600" height="1078" alt="Grupo grande saludando a la cámara en la sala de una casa."></li>
 <li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/sesion-privada.jpg" width="1410" height="792" alt="Un grupo pequeño en sofás sigue una presentación en una pantalla grande."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/cena-bogota.jpg" width="1280" height="960" alt="Grupo de ejecutivos posando juntos en un restaurante."></li>
 <li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/conversacion.jpg" width="1534" height="1042" alt="Una invitada conversa y ríe frente a un grupo pequeño."></li>
-<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/sesion-de-trabajo.jpg" width="640" height="480" alt="Personas trabajando con laptops alrededor de una mesa larga de madera."></li>
-<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/charla.jpg" width="640" height="480" alt="Sala llena escuchando a un ponente con micrófono."></li>
-<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/napa-charla.jpg" width="1600" height="1067" alt="Dos personas conversan frente a un grupo pequeño en una sala."></li>
-<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/napa-comida.jpg" width="1600" height="1067" alt="Comida al aire libre en una mesa larga en un patio."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/encuentro-bogota.jpg" width="1914" height="1004" alt="Foto grupal de unas treinta personas en un salón."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/founder-mode.jpg" width="2000" height="1333" alt="Grupo celebrando con las manos arriba en un evento de founders."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/encuentro-cdmx.jpg" width="2000" height="1333" alt="Decenas de personas saludando a la cámara al final de un encuentro."></li>
 </ul>
 <ul class="inf-marquee__group" aria-hidden="true">
 <li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/encuentro.jpg" width="2000" height="1121" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/latam-ai-summit.jpg" width="1795" height="1536" alt=""></li>
 <li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/panel.jpg" width="1860" height="1064" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/casa-sf.jpg" width="1600" height="1078" alt=""></li>
 <li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/sesion-privada.jpg" width="1410" height="792" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/cena-bogota.jpg" width="1280" height="960" alt=""></li>
 <li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/conversacion.jpg" width="1534" height="1042" alt=""></li>
-<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/sesion-de-trabajo.jpg" width="640" height="480" alt=""></li>
-<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/charla.jpg" width="640" height="480" alt=""></li>
-<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/napa-charla.jpg" width="1600" height="1067" alt=""></li>
-<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/napa-comida.jpg" width="1600" height="1067" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/encuentro-bogota.jpg" width="1914" height="1004" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/founder-mode.jpg" width="2000" height="1333" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/encuentro-cdmx.jpg" width="2000" height="1333" alt=""></li>
 </ul>
 </div>
 </div>
