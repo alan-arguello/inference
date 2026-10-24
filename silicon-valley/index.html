@@ -301,6 +301,25 @@ document.querySelectorAll('[data-days]').forEach(function (el) {
   var d = Math.ceil((new Date('2026-11-16T00:00:00-06:00') - Date.now()) / 86400000);
   if (d > 0) { el.querySelector('[data-days-n]').textContent = d; el.hidden = false; }
 });
+document.querySelectorAll('[data-rail]').forEach(function (rail) {
+  var sec = rail.closest('section'); var ctrl = sec && sec.querySelector('[data-rail-ctrl]');
+  if (!ctrl) return; ctrl.hidden = false;
+  var step = function () { var c = rail.querySelector('li'); return c ? c.getBoundingClientRect().width + 24 : 400; };
+  ctrl.querySelector('[data-rail-prev]').addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  ctrl.querySelector('[data-rail-next]').addEventListener('click', function () { rail.scrollBy({ left: step(), behavior: 'smooth' }); });
+});
+document.querySelectorAll('[data-yt]').forEach(function (a) {
+  a.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + a.getAttribute('data-yt') + '?autoplay=1&rel=0';
+    f.title = a.getAttribute('aria-label') || 'Video';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.allowFullscreen = true;
+    var box = document.createElement('div'); box.className = 'vid__frame'; box.appendChild(f);
+    a.replaceWith(box);
+  });
+});
 </script>
 </body>
 </html>

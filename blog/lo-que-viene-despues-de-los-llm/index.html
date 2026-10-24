@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pocos están prestando atención a lo que viene después de ChatGPT y los LLM — SIS</title>
+<meta name="description" content="Los modelos fundacionales están a punto de hacer con la robótica lo mismo que ChatGPT hizo con el lenguaje.">
+<link rel="icon" type="image/svg+xml" href="../../assets/img/sis-logo.svg">
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<link rel="stylesheet" href="../../assets/css/bundle.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;family=Geist:wght@400;500&amp;family=Instrument+Sans:wght@600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:var(--surface);-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}
+.post-wrap{max-width:720px;margin:0 auto}
+.post-head{display:flex;flex-direction:column;gap:var(--space-6);padding:var(--space-16) 0 var(--space-12)}
+.post-back{align-self:flex-start;font-family:var(--font-sans);font-size:14px;color:var(--ink-muted);text-decoration:none}
+.post-back:hover{color:var(--ink)}
+.post-eyebrow{margin:0;display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-4);font-family:var(--font-sans);font-size:14px;color:var(--ink-muted)}
+.post-eyebrow b{font-weight:500;color:var(--ink)}
+.post-head .inf-display{font-size:clamp(34px,4.4vw,52px);max-width:none}
+.post-cover{display:block;width:100%;max-width:960px;height:auto;aspect-ratio:16/10;margin:0 auto;border-radius:var(--radius-sm);background:var(--tinta-950)}
+.post-body{padding:var(--space-12) 0 var(--space-16);font-family:var(--font-sans);font-size:18px;line-height:1.7;color:var(--ink)}
+.post-body > *{margin:0 0 var(--space-6)}
+.post-body h2{margin:var(--space-12) 0 var(--space-4);font-family:var(--font-serif);font-size:clamp(26px,3vw,32px);font-weight:400;line-height:1.2;letter-spacing:-0.015em;text-wrap:balance}
+.post-body blockquote{margin:var(--space-8) 0;padding:0 0 0 var(--space-6);border-left:var(--hairline) solid var(--ink);font-family:var(--font-serif);font-size:clamp(22px,2.4vw,26px);line-height:1.35;letter-spacing:-0.01em;color:var(--ink)}
+.post-body ul,.post-body ol{padding:0;list-style:none}
+.post-body li{position:relative;margin:0 0 var(--space-3);padding-left:32px}
+.post-body ul > li::before{content:"";position:absolute;left:4px;top:.8em;width:12px;height:1px;background:var(--ink-muted)}
+.post-body ol{counter-reset:n}
+.post-body ol > li{counter-increment:n}
+.post-body ol > li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:.2em;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ink-muted)}
+.post-body hr{height:0;border:0;border-top:var(--hairline) solid var(--line);margin:var(--space-12) 0}
+.post-dl{display:grid;grid-template-columns:150px minmax(0,1fr);border-top:var(--hairline) solid var(--line)}
+.post-dl dt,.post-dl dd{margin:0;padding:var(--space-4) 0;border-bottom:var(--hairline) solid var(--line)}
+.post-dl dt{font-weight:500}
+.post-dl dd{color:var(--ink);font-size:17px;line-height:1.6}
+.post-video{position:relative;margin:var(--space-8) 0;aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius-sm);background:var(--tinta-950)}
+.post-video a{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--papel)}
+.post-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.post-cite{margin:var(--space-8) 0;padding:var(--space-6);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field)}
+.post-cite p{margin:0 0 var(--space-4);font-family:var(--font-serif);font-size:22px;line-height:1.4;color:var(--ink)}
+.post-cite a{font-size:14px;color:var(--ink-muted)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2);margin:var(--space-8) 0;padding:var(--space-6);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field)}
+.flow span{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border:var(--hairline) solid var(--line-strong);border-radius:var(--radius-pill);font-size:15px;font-weight:500;line-height:1.2;color:var(--ink);background:var(--surface)}
+.flow span.is-key{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.flow em{font-style:normal;color:var(--ink-muted)}
+.fig{margin:var(--space-8) 0}
+.fig figcaption{margin-top:var(--space-3);font-size:14px;color:var(--ink-muted)}
+.fig--wide{width:min(1040px,calc(100vw - 80px));margin-left:50%;transform:translateX(-50%)}
+.stages{display:grid;grid-template-columns:repeat(5,minmax(180px,1fr));gap:var(--space-3);overflow-x:auto;padding-bottom:var(--space-2);scroll-snap-type:x mandatory}
+.stage{scroll-snap-align:start}
+.stage{display:flex;flex-direction:column;gap:var(--space-2);min-height:280px;padding:var(--space-4);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field);font-size:14px;line-height:1.45}
+.stage small{font-size:13px;color:var(--ink-muted)}
+.stage strong{font-family:var(--font-serif);font-size:21px;font-weight:400;line-height:1.15}
+.stage .tools{margin:var(--space-2) 0 auto;display:flex;flex-wrap:wrap;gap:6px}
+.stage .tools i{font-style:normal;padding:2px 8px;border:var(--hairline) solid var(--line);border-radius:var(--radius-pill);font-size:12.5px}
+.stage .you{padding-top:var(--space-2);border-top:var(--hairline) solid var(--line);color:var(--ink)}
+.stage .you b{font-weight:500}
+.stage[data-theme="oscuro"]{background:var(--surface);border-color:var(--surface);color:var(--ink)}
+.stage .pill{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border-radius:var(--radius-pill);background:var(--accent-tint);font-size:12px;font-weight:500;color:var(--ink)}
+.stage .pill::before{content:"";width:6px;height:6px;border-radius:9px;background:var(--accent)}
+.agent{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-3)}
+.agent > div{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-4);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field);font-size:15px;line-height:1.5}
+.agent small{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+.agent strong{font-family:var(--font-serif);font-size:26px;font-weight:400;line-height:1.1}
+.agent .ex{margin-top:auto;padding-top:var(--space-3);border-top:var(--hairline) solid var(--line);font-size:13.5px;color:var(--ink-muted)}
+.agent-band{grid-column:1/-1;padding:var(--space-4) var(--space-6);border-radius:var(--radius-sm);background:var(--tinta-950);color:var(--papel);font-family:var(--font-serif);font-size:21px;line-height:1.35}
+.agent-band span{color:var(--verde-400)}
+.chat{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-2);padding:var(--space-6);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field);font-size:15.5px;line-height:1.45}
+.chat-head{align-self:center;display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:var(--space-4);font-size:14px}
+.chat-head i{width:44px;height:44px;border-radius:99px;border:12px solid var(--line-strong);box-sizing:border-box}
+.chat-head b{font-weight:500}.chat-head span{color:var(--ink-muted);font-size:13px}
+.chat time{align-self:center;font-size:12.5px;color:var(--ink-muted);margin-bottom:var(--space-2)}
+.chat p{margin:0;max-width:88%;padding:10px 16px;border-radius:18px;background:var(--surface-raised);color:var(--ink)}
+.sae{display:grid;grid-template-columns:auto 24px auto 24px minmax(0,1fr) 24px auto 24px auto;align-items:center;gap:0;padding:var(--space-6);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field);font-size:14px}
+.sae .n{padding:10px 14px;border:var(--hairline) solid var(--line-strong);border-radius:var(--radius-sm);background:var(--surface);font-weight:500;text-align:center}
+.sae .n.dark{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.sae .arr{text-align:center;color:var(--ink-muted)}
+.sae .feats{display:flex;flex-direction:column;gap:6px}
+.sae .feats span{padding:6px 10px;border:var(--hairline) solid var(--line);border-radius:var(--radius-pill);background:var(--surface);font-size:13px}
+.sae .feats b{font-weight:500}
+.post-more{padding:var(--space-16) 0 var(--space-8);border-top:var(--hairline) solid var(--line)}
+.post-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-6);margin:var(--space-8) 0 var(--space-16);padding:var(--space-12);border-radius:var(--radius-sm);background:var(--surface)}
+.post-cta .inf-title{max-width:16em}
+.post-cta p{margin:var(--space-3) 0 0;font-family:var(--font-sans);font-size:16px;color:var(--ink-muted)}
+@media (max-width:640px){.fig--wide{width:calc(100vw - 40px)}}
+@media (max-width:800px){.agent{grid-template-columns:minmax(0,1fr)}.sae{grid-template-columns:minmax(0,1fr);gap:var(--space-2)}.sae .arr{transform:rotate(90deg)}.post-dl{grid-template-columns:minmax(0,1fr)}.post-dl dt{border-bottom:0;padding-bottom:0}.post-cta{padding:var(--space-8)}.post-body{font-size:17px}}
+
+.rail-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--space-4)}
+.rail-head p{margin:var(--space-2) 0 0;font-family:var(--font-sans);font-size:15px;color:var(--ink-muted)}
+.rail-ctrl{display:flex;gap:var(--space-2)}
+.rail-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:var(--hairline) solid var(--ink);border-radius:var(--radius-pill);background:transparent;color:var(--ink);font:500 18px/1 var(--font-sans);cursor:pointer;transition:background-color 160ms ease-out,color 160ms ease-out}
+.rail-btn:hover{background:var(--ink);color:var(--surface)}
+.rail-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.post-rail{display:grid;grid-auto-flow:column;grid-auto-columns:360px;gap:var(--space-6);margin:0 calc(50% - 50vw) 0 0;padding:var(--space-2) calc(50vw - 50%) var(--space-6) 0;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--line) transparent;-webkit-overflow-scrolling:touch}
+.post-rail::-webkit-scrollbar{height:6px}.post-rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
+.post-card{scroll-snap-align:start;margin:0}
+.post-card__link{display:flex;flex-direction:column;gap:var(--space-3);height:100%;color:var(--ink);text-decoration:none}
+.post-card__media{display:block;aspect-ratio:16/10;overflow:hidden;border-radius:var(--radius-sm);background:var(--tinta-950);margin-bottom:var(--space-2)}
+.post-card__media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.post-card__link:hover .post-card__media img{transform:scale(1.03)}
+.post-card__link:focus-visible{outline:2px solid var(--focus);outline-offset:4px;border-radius:2px}
+.post-card__meta{font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:.02em;color:var(--ink-muted)}
+.post-card__title{margin:0;font-family:var(--font-serif);font-size:24px;font-weight:400;line-height:1.2;letter-spacing:-0.01em;color:var(--ink);text-wrap:balance}
+.post-card__link:hover .post-card__title{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.post-card__dek{font-family:var(--font-sans);font-size:15px;line-height:1.55;color:var(--ink-muted)}
+@media (max-width:640px){.post-rail{grid-auto-columns:80vw;gap:var(--space-4)}.rail-ctrl{display:none}}
+</style>
+</head>
+<body>
+<main class="inf-page" style="width: 100%">
+<div class="inf-container">
+<header class="inf-nav">
+<a class="inf-wordmark" href="../../" aria-label="SIS, Super Intelligence Society by AiYaiYai, inicio"><span class="inf-wordmark__name">SIS<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">Super Intelligence Society<span>by AiYaiYai</span></span></a>
+<nav class="inf-nav__links" aria-label="Principal">
+<a class="inf-nav__link" href="../../#escribimos">Temas</a>
+<a class="inf-nav__link" href="../../#videos">Videos</a>
+<a class="inf-btn inf-btn--primary" href="../../#aplicar">Aplicar</a>
+</nav>
+</header>
+<article>
+<div class="post-wrap">
+<header class="post-head">
+<a class="post-back" href="../../#escribimos">← Temas de los que escribimos</a>
+<p class="post-eyebrow"><b>Physical AI</b><span>Abril de 2026</span><span>10 min de lectura</span></p>
+<h1 class="inf-display">Pocos están prestando atención a lo que viene después de ChatGPT y los LLM</h1>
+<p class="inf-lead">Los modelos fundacionales están a punto de hacer con la robótica lo mismo que ChatGPT hizo con el lenguaje.</p>
+</header>
+</div>
+<img class="post-cover" src="../../assets/img/lo-que-viene-despues-de-los-llm.png" width="1600" height="1000" alt="">
+<div class="post-wrap post-body">
+<p>Para muchos de nosotros, hoy parece obvio por qué herramientas como ChatGPT son sorprendentes. Pero la realidad es que, en cierta perspectiva, nos montamos tarde en la ola.</p>
+<p>Entre 2015 y 2022, los modelos de lenguaje todavía no eran parte de la conversación mainstream, y durante ese tiempo no le prestamos atención suficiente a OpenAI.</p>
+<p>Existían avances importantes desde hacía décadas, pero para la mayoría de personas no se sentía como “el futuro”. Luego llegó ChatGPT y de pronto parecía evidente.</p>
+<blockquote>Algo parecido puede estar pasando hoy en robótica.</blockquote>
+<p>No porque mañana vayamos a tener humanoides haciendo todo en nuestras casas. Eso probablemente tomará más tiempo. Pero sí porque está habiendo un cambio muy importante.</p>
+<blockquote>Estamos pasando de robots programados tarea por tarea a modelos que aprenden principios generales para actuar en el mundo físico.</blockquote>
+<p>En este artículo explicamos por qué este campo nos ha llamado tanto la atención, qué está cambiando y por qué puede ser una de las áreas más importantes de la próxima década.</p>
+<p>Para que te des una idea, estas son solo algunas de las empresas que le están apostando a este sector: Tesla, OpenAI, Mistral, Hugging Face, Gemini Robotics, Atoms, Amazon, DoorDash y Waymo, entre muchas más.</p>
+<p>Esto es solo una parte de lo que hemos aprendido estudiando este campo durante estos meses y conversando con personas que recopilan datos para modelos fundacionales de robótica.</p>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=UALxgn1MnZo" target="_blank" rel="noopener">Ver en YouTube: Google DeepMind robotics lab tour con Hannah Fry</a><iframe src="https://www.youtube-nocookie.com/embed/UALxgn1MnZo?rel=0" title="Google DeepMind robotics lab tour con Hannah Fry" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<h2>La robótica ya era enorme, pero no como la imaginábamos</h2>
+<p>Durante décadas, la robótica avanzó bajo una lógica muy distinta al software moderno: si querías que un robot hiciera una tarea, tenías que diseñar buena parte del sistema alrededor de esa tarea.</p>
+<ul><li>Un brazo industrial para soldar autos.</li><li>Un robot de almacén para mover cajas.</li><li>Un robot quirúrgico para asistir una operación.</li></ul>
+<p>Cada caso requería hardware específico, sensores específicos, software específico, integración específica y un ambiente relativamente controlado. Y ese enfoque funcionó.</p>
+<p>En 2024 había 4.66 millones de robots industriales operando en el mundo, y se instalaron 542,000 robots industriales nuevos ese año. China representó el 54% de esas instalaciones globales.</p>
+<p>La automatización industrial no es una promesa futura. Ya es infraestructura productiva. Pero lo que está cambiando hoy es más profundo que “más robots en fábricas”.</p>
+<p>La nueva tesis es que los robots pueden dejar de ser máquinas programadas para una tarea específica y empezar a convertirse en sistemas que aprenden a actuar en el mundo físico.</p>
+<p>A esto se le está llamando embodied AI o physical AI: inteligencia artificial que no solo procesa texto, imágenes o código, sino que percibe, decide y ejecuta acciones en el mundo real.</p>
+<h2>De robots especializados a modelos generalistas</h2>
+<p>La robótica moderna empezó a tener impacto comercial en los años sesenta. Unimate, considerado el primer robot industrial, fue desarrollado a partir del trabajo de George Devol y Joseph Engelberger, y llegó a líneas de producción automotriz en 1961. Su valor era claro: hacer tareas repetitivas, peligrosas o físicamente pesadas con más consistencia que un humano.</p>
+<p>Casi al mismo tiempo, la investigación académica empezó a imaginar robots más inteligentes.</p>
+<p>Shakey, desarrollado por SRI entre 1966 y 1972, fue uno de los primeros robots móviles capaces de percibir su entorno, planear rutas y reorganizar objetos simples. Era una demostración temprana de una idea poderosa: un robot no solo como máquina mecánica, sino como sistema que conecta percepción, razonamiento y acción.</p>
+<p>El problema es que esa visión tardó mucho más de lo esperado. Durante años, los robots fueron excelentes en entornos controlados y muy malos fuera de ellos.</p>
+<p>En una fábrica, donde las piezas están en posiciones conocidas, la iluminación es estable y el proceso está diseñado alrededor de la máquina, un robot puede ser extraordinario.</p>
+<p>Pero en una casa, una cocina, una bodega desordenada o un hospital, el mundo cambia todo el tiempo.</p>
+<ul><li>Los objetos se mueven.</li><li>El suelo puede estar mojado.</li><li>Una puerta puede no abrir bien.</li><li>Una persona puede atravesarse.</li></ul>
+<blockquote>Ese tipo de variabilidad es exactamente lo que hace difícil la robótica general.</blockquote>
+<h2>Por qué los robots “simples” son tan difíciles</h2>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=raHM3k-uR0E" target="_blank" rel="noopener">Ver en YouTube: Un científico de la computación explica un concepto en 5 niveles de dificultad</a><iframe src="https://www.youtube-nocookie.com/embed/raHM3k-uR0E?rel=0" title="Un científico de la computación explica un concepto en 5 niveles de dificultad" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p>Hay una idea clásica en inteligencia artificial llamada la paradoja de Moravec. Explica gran parte del retraso histórico de la robótica.</p>
+<p>Para los humanos, resolver ecuaciones, jugar ajedrez o escribir código se siente difícil. Caminar, agarrar una taza, doblar una playera o limpiar una mesa se siente fácil.</p>
+<blockquote>Para las máquinas, suele pasar lo contrario.</blockquote>
+<p>Las computadoras pudieron hacer cálculo, jugar ajedrez y manipular símbolos mucho antes de poder moverse en el mundo con la flexibilidad de un niño.</p>
+<p>La explicación es que las habilidades físicas que nos parecen “fáciles” son el resultado de millones de años de evolución: visión, equilibrio, tacto, coordinación, intuición espacial, manipulación fina. No las notamos porque las ejecutamos sin pensar.</p>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=Zn8yMaepzVk" target="_blank" rel="noopener">Ver en YouTube: π0.5: un modelo VLA que generaliza a entornos nuevos</a><iframe src="https://www.youtube-nocookie.com/embed/Zn8yMaepzVk?rel=0" title="π0.5: un modelo VLA que generaliza a entornos nuevos" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p>Por eso muchas demos robóticas importantes se ven aburridas para una persona normal.</p>
+<p>Un robot doblando ropa, guardando platos o limpiando una cocina no se ve tan espectacular como un humanoide dando una vuelta en el aire. Pero técnicamente no tienen comparación.</p>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=tF4DML7FIWk" target="_blank" rel="noopener">Ver en YouTube: Atlas: Partners in Parkour</a><iframe src="https://www.youtube-nocookie.com/embed/tF4DML7FIWk?rel=0" title="Atlas: Partners in Parkour" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p>Un robot haciendo acrobacias puede estar en un entorno controlado, con movimientos preprogramados y condiciones muy específicas.</p>
+<p>En cambio, limpiar una cocina desconocida requiere reconocer objetos, inferir su función, decidir qué va dónde, coordinar movimientos finos y reaccionar a errores.</p>
+<blockquote>La robótica útil se mide por cuánta variabilidad puede soportar.</blockquote>
+<h2>Qué cambió con los modelos de lenguaje</h2>
+<p>ChatGPT cambió la percepción pública de la inteligencia artificial porque mostró que un modelo generalista podía hacer muchas tareas de lenguaje sin haber sido programado una por una.</p>
+<p>Antes había sistemas especializados en traducir, sistemas para resumir, sistemas para corregir texto, sistemas para clasificar documentos.</p>
+<blockquote>Luego llegaron modelos que aprendieron patrones generales del lenguaje y pudieron adaptarse a muchas tareas. Los LLM.</blockquote>
+<p>La robótica está intentando una transición parecida. Aquí aparecen los modelos VLA, por vision-language-action. En términos simples: modelos que reciben información visual, entienden instrucciones en lenguaje natural y producen acciones físicas.</p>
+<p class="flow" role="img" aria-label="Visión → Lenguaje → Modelo VLA → Acción física"><span>Visión</span><em aria-hidden="true">→</em><span>Lenguaje</span><em aria-hidden="true">→</em><span class="is-key">Modelo VLA</span><em aria-hidden="true">→</em><span>Acción física</span></p>
+<p>Google DeepMind presentó RT-2 en 2023 como un modelo VLA que aprende tanto de datos web como de datos robóticos para traducir visión y lenguaje en acciones de control robótico.</p>
+<p>Eso es importante porque conecta dos mundos que antes estaban más separados.</p>
+<p>Por un lado, los modelos de lenguaje y visión tienen una especie de “sentido común” aprendido de internet. Pueden entender que si alguien dice “limpia el derrame”, probablemente hay que buscar algo para limpiar, ubicar el líquido y pasar una esponja o trapo por la superficie. Pero ese entendimiento no basta.</p>
+<p>Un robot también necesita saber si puede alcanzar el objeto, cuánta fuerza usar, cómo mover el brazo, qué pasa si el trapo se dobla, cómo corregir si el vaso se cae o si la mesa está en una posición distinta.</p>
+<p>Existen otras arquitecturas, como DVA, JEPA y world models, entre otras.</p>
+<h2>El gran cuello de botella: no existe un internet del movimiento</h2>
+<p>Los modelos de lenguaje pudieron entrenarse con una cantidad enorme de texto disponible en internet: libros, páginas web, foros, documentación, código, artículos.</p>
+<p>La robótica no tiene un equivalente directo. No existe un internet masivo de cómo se siente agarrar una taza, cuánta fuerza se necesita para cerrar un cajón viejo, cómo cambia la fricción de una tela al doblarla o qué hacer cuando una puerta se atora.</p>
+<p>Ese es uno de los mayores cuellos de botella del campo y una de las oportunidades de negocio que más ha crecido en San Francisco, y que pocos han explorado en Latinoamérica.</p>
+<blockquote>Los robots necesitan datos físicos. Y los datos físicos son caros, lentos y difíciles de recolectar.</blockquote>
+<h2>El problema de tiempo real</h2>
+<p>Hay otra diferencia enorme entre un chatbot y un robot. Si le pides algo a ChatGPT y tarda dos segundos más, casi no pasa nada. La respuesta llega completa.</p>
+<p>Un robot no tiene ese lujo: está moviéndose en el mundo físico. Si tarda demasiado en decidir el siguiente movimiento, se nota. Puede pausar, temblar, chocar, perder equilibrio o simplemente verse torpe.</p>
+<blockquote>Por eso parte del avance reciente no está solo en “hacer modelos más inteligentes”, sino en hacerlos capaces de actuar en tiempo real.</blockquote>
+<p>Physical Intelligence ha trabajado en técnicas como real-time chunking. La idea es simple de explicar: en lugar de pedirle al modelo que decida un movimiento a la vez, le pides que prediga una secuencia de movimientos. Mientras el robot ejecuta esa secuencia, el modelo ya está calculando la siguiente. En sus modelos, usan bloques de 50 acciones, aproximadamente un segundo de tiempo real.</p>
+<p>Ese detalle puede sonar menor, pero para el usuario final es la diferencia entre una máquina que se mueve de forma torpe y una máquina que empieza a moverse de forma natural.</p>
+<h2>Por qué los humanoides llaman tanto la atención</h2>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=LTYMWadOW7c" target="_blank" rel="noopener">Ver en YouTube: NEO, el robot humanoide para el hogar</a><iframe src="https://www.youtube-nocookie.com/embed/LTYMWadOW7c?rel=0" title="NEO, el robot humanoide para el hogar" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p>Los humanoides reciben tanta atención por una razón sencilla: el mundo humano está diseñado para cuerpos humanos.</p>
+<p>Si quieres automatizar un mundo construido para humanos, tienes dos opciones.</p>
+<ol><li>La primera es rediseñar el mundo para máquinas. Eso es lo que muchas fábricas ya hicieron.</li><li>La segunda es construir máquinas que puedan operar en espacios humanos.</li></ol>
+<p>No necesariamente porque sea la forma óptima para todo, sino porque promete entrar en entornos existentes sin tener que rediseñarlos desde cero.</p>
+<p>Pero también tiene sus contras. Un humanoide es uno de los formatos más difíciles: equilibrio, manos, locomoción, manipulación fina, consumo energético, seguridad cerca de personas, costo de fabricación y mantenimiento.</p>
+<p>En muchos casos, un robot especializado puede ser más rentable que un humanoide general. Por eso no creemos que debamos pensar en “humanoides vs. robots especializados” como una guerra con un solo ganador.</p>
+<p>Lo más probable es que veamos una mezcla.</p>
+<ol><li>En fábricas, almacenes, minería, agricultura, hospitales y cocinas industriales, muchos robots seguirán siendo especializados.</li><li>En hogares, oficinas, retail y ciertos espacios humanos, los humanoides pueden tener más sentido si logran suficiente confiabilidad a un costo razonable.</li></ol>
+<h2>Por qué todos están mirando este espacio</h2>
+<p>En los últimos años, este campo dejó de ser solo académico.</p>
+<ol><li>Google DeepMind lanzó Gemini Robotics y en abril de 2026 presentó Gemini Robotics-ER 1.6, enfocado en capacidades críticas para robots como razonamiento visual y espacial, planeación de tareas y detección de éxito.</li><li>NVIDIA presentó GR00T N1, un modelo fundacional abierto para humanoides entrenado con videos humanos, trayectorias robóticas reales, simulación y datos sintéticos.</li><li>Figure presentó Helix, un modelo VLA para humanoides que une percepción, lenguaje y control aprendido, incluyendo control del torso, cabeza, muñecas y dedos.</li><li>Physical Intelligence ha trabajado en modelos VLA como π0.5, enfocados en generalizar tareas robóticas fuera del laboratorio.</li></ol>
+<p>Los LLM ya transformaron parte del trabajo digital. Ahora el capital, los laboratorios y los founders están intentando llevar esa capacidad al mundo físico.</p>
+<h2>Qué falta para que esto se vuelva masivo</h2>
+<p>El progreso técnico es real, pero todavía hay obstáculos grandes.</p>
+<dl class="post-dl"><dt>Confiabilidad</dt><dd>En software, un modelo que acierta 80% de las veces puede ser útil si hay supervisión humana. En robótica, 80% puede ser insuficiente. Una empresa no quiere un robot que “casi siempre” cargue una pieza correctamente si el 20% restante detiene la línea.</dd><dt>Costo</dt><dd>Un robot no es solo software. Tiene cuerpo, mantenimiento, piezas, baterías, sensores, instalación, soporte y seguro. El modelo económico tiene que competir contra mano de obra, outsourcing, máquinas existentes o rediseño de procesos.</dd><dt>Datos</dt><dd>Para que los robots mejoren, necesitan operar en el mundo real. Pero para operar en el mundo real, necesitan ser suficientemente buenos. Ese ciclo todavía está empezando.</dd><dt>Seguridad</dt><dd>Un agente digital puede equivocarse en un documento. Un agente físico puede mover una herramienta, empujar una mesa, derramar líquido o acercarse demasiado a una persona. La seguridad no será un tema secundario. Será parte del producto.</dd><dt>Integración</dt><dd>Muchas empresas no tienen procesos listos para automatización física. Sus operaciones dependen de excepciones, improvisación, comunicación informal y conocimiento tácito de operadores.</dd></dl>
+<p>Antes de meter robots, muchas tendrán que rediseñar flujos, layouts, datos operativos y responsabilidades.</p>
+<h2>Entonces, ¿cuándo llega?</h2>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=b8BDUa-xbyA" target="_blank" rel="noopener">Ver en YouTube: Dentro de la startup que construye cerebros para robots (Physical Intelligence)</a><iframe src="https://www.youtube-nocookie.com/embed/b8BDUa-xbyA?rel=0" title="Dentro de la startup que construye cerebros para robots (Physical Intelligence)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p>Depende de qué entendamos por “llegar”.</p>
+<ul><li>Los robots ya están aquí en fábricas, logística y ciertos entornos industriales.</li><li>Lo nuevo es que están empezando a ganar flexibilidad.</li></ul>
+<p>En los próximos años, los avances más importantes probablemente ocurran en entornos comerciales controlados: manufactura, almacenes, alimentos, inspección industrial, minería, agricultura especializada, hospitales y servicios donde las tareas sean repetibles, medibles y económicamente claras.</p>
+<p>El hogar será más difícil. No porque no haya demanda, sino porque el hogar es un entorno caótico, emocional, diverso y poco estandarizado. Cada casa es distinta. Cada familia organiza las cosas distinto. La tolerancia a errores es baja. El costo tiene que bajar mucho.</p>
+<blockquote>La robótica fue principalmente una historia de máquinas especializadas. Ahora empieza a ser una historia de modelos que aprenden principios generales de acción física.</blockquote>
+</div>
+</article>
+<section class="post-more" aria-labelledby="mas-titulo">
+<div class="rail-head"><h2 class="inf-heading" id="mas-titulo">Sigue leyendo</h2></div>
+<ul class="post-rail" style="margin-top: 32px">
+<li class="post-card"><a class="post-card__link" href="../../blog/agentes-always-on/"><span class="post-card__media"><img src="../../assets/img/agentes-always-on.png" width="1600" height="1000" alt=""></span><span class="post-card__meta">Agentes · 2 min de lectura</span><h3 class="post-card__title">Agentes always-on: qué son y cómo empezar</h3><span class="post-card__dek">La nueva categoría de agentes que trabajan en segundo plano, y por qué el contexto de tu empresa es lo que más importa.</span></a></li>
+<li class="post-card"><a class="post-card__link" href="../../blog/modelos-mas-alla-de-nosotros/"><span class="post-card__media"><img src="../../assets/img/modelos-mas-alla-de-nosotros.png" width="1600" height="1000" alt=""></span><span class="post-card__meta">Investigación · 6 min de lectura</span><h3 class="post-card__title">Los modelos generativos de IA tienen un enemigo: los humanos</h3><span class="post-card__dek">Los LLMs aprendieron de nosotros. El reto ahora es que aprendan más allá de nosotros.</span></a></li>
+<li class="post-card"><a class="post-card__link" href="../../blog/un-llm-no-es-todo-tu-sistema/"><span class="post-card__media"><img src="../../assets/img/un-llm-no-es-todo-tu-sistema.png" width="1600" height="1000" alt=""></span><span class="post-card__meta">Arquitectura · 5 min de lectura</span><h3 class="post-card__title">Por qué un LLM no debería ser todo tu sistema de IA</h3><span class="post-card__dek">En radiología, y en muchas industrias, el problema no es generar texto sino generar confianza verificable.</span></a></li>
+</ul>
+</section>
+</div>
+<div data-theme="oscuro" style="background: var(--surface)">
+<div class="inf-container">
+<div class="post-cta">
+<div><h2 class="inf-title">¿Estás llevando IA a tu negocio?</h2><p>SIS es gratis. Se entra por aplicación.</p></div>
+<a class="inf-btn inf-btn--primary" href="../../#aplicar">Aplicar a SIS</a>
+</div>
+</div>
+</div>
+<div class="inf-container">
+<footer class="inf-footer">
+<a class="inf-wordmark" href="../../" aria-label="SIS, Super Intelligence Society by AiYaiYai"><span class="inf-wordmark__name">SIS<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">Super Intelligence Society<span>by AiYaiYai</span></span></a>
+<span>© 2026 AiYaiYai</span>
+</footer>
+</div>
+</main>
+<script>
+document.querySelectorAll('[data-submit]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var f = b.form; if (f && !f.reportValidity()) return;
+    if (f) f.reset();
+    var s = f && f.querySelector('[data-sent]'); if (s) s.hidden = false;
+  });
+});
+document.querySelectorAll('[data-days]').forEach(function (el) {
+  var d = Math.ceil((new Date('2026-11-16T00:00:00-06:00') - Date.now()) / 86400000);
+  if (d > 0) { el.querySelector('[data-days-n]').textContent = d; el.hidden = false; }
+});
+document.querySelectorAll('[data-rail]').forEach(function (rail) {
+  var sec = rail.closest('section'); var ctrl = sec && sec.querySelector('[data-rail-ctrl]');
+  if (!ctrl) return; ctrl.hidden = false;
+  var step = function () { var c = rail.querySelector('li'); return c ? c.getBoundingClientRect().width + 24 : 400; };
+  ctrl.querySelector('[data-rail-prev]').addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  ctrl.querySelector('[data-rail-next]').addEventListener('click', function () { rail.scrollBy({ left: step(), behavior: 'smooth' }); });
+});
+document.querySelectorAll('[data-yt]').forEach(function (a) {
+  a.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + a.getAttribute('data-yt') + '?autoplay=1&rel=0';
+    f.title = a.getAttribute('aria-label') || 'Video';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.allowFullscreen = true;
+    var box = document.createElement('div'); box.className = 'vid__frame'; box.appendChild(f);
+    a.replaceWith(box);
+  });
+});
+</script>
+</body>
+</html>

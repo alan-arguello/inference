@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Los modelos generativos de IA tienen un enemigo: los humanos — SIS</title>
+<meta name="description" content="Los LLMs aprendieron de nosotros. El reto ahora es que aprendan más allá de nosotros.">
+<link rel="icon" type="image/svg+xml" href="../../assets/img/sis-logo.svg">
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<link rel="stylesheet" href="../../assets/css/bundle.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;family=Geist:wght@400;500&amp;family=Instrument+Sans:wght@600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:var(--surface);-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}
+.post-wrap{max-width:720px;margin:0 auto}
+.post-head{display:flex;flex-direction:column;gap:var(--space-6);padding:var(--space-16) 0 var(--space-12)}
+.post-back{align-self:flex-start;font-family:var(--font-sans);font-size:14px;color:var(--ink-muted);text-decoration:none}
+.post-back:hover{color:var(--ink)}
+.post-eyebrow{margin:0;display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-4);font-family:var(--font-sans);font-size:14px;color:var(--ink-muted)}
+.post-eyebrow b{font-weight:500;color:var(--ink)}
+.post-head .inf-display{font-size:clamp(34px,4.4vw,52px);max-width:none}
+.post-cover{display:block;width:100%;max-width:960px;height:auto;aspect-ratio:16/10;margin:0 auto;border-radius:var(--radius-sm);background:var(--tinta-950)}
+.post-body{padding:var(--space-12) 0 var(--space-16);font-family:var(--font-sans);font-size:18px;line-height:1.7;color:var(--ink)}
+.post-body > *{margin:0 0 var(--space-6)}
+.post-body h2{margin:var(--space-12) 0 var(--space-4);font-family:var(--font-serif);font-size:clamp(26px,3vw,32px);font-weight:400;line-height:1.2;letter-spacing:-0.015em;text-wrap:balance}
+.post-body blockquote{margin:var(--space-8) 0;padding:0 0 0 var(--space-6);border-left:var(--hairline) solid var(--ink);font-family:var(--font-serif);font-size:clamp(22px,2.4vw,26px);line-height:1.35;letter-spacing:-0.01em;color:var(--ink)}
+.post-body ul,.post-body ol{padding:0;list-style:none}
+.post-body li{position:relative;margin:0 0 var(--space-3);padding-left:32px}
+.post-body ul > li::before{content:"";position:absolute;left:4px;top:.8em;width:12px;height:1px;background:var(--ink-muted)}
+.post-body ol{counter-reset:n}
+.post-body ol > li{counter-increment:n}
+.post-body ol > li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:.2em;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ink-muted)}
+.post-body hr{height:0;border:0;border-top:var(--hairline) solid var(--line);margin:var(--space-12) 0}
+.post-dl{display:grid;grid-template-columns:150px minmax(0,1fr);border-top:var(--hairline) solid var(--line)}
+.post-dl dt,.post-dl dd{margin:0;padding:var(--space-4) 0;border-bottom:var(--hairline) solid var(--line)}
+.post-dl dt{font-weight:500}
+.post-dl dd{color:var(--ink);font-size:17px;line-height:1.6}
+.post-video{position:relative;margin:var(--space-8) 0;aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius-sm);background:var(--tinta-950)}
+.post-video a{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--papel)}
+.post-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.post-cite{margin:var(--space-8) 0;padding:var(--space-6);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field)}
+.post-cite p{margin:0 0 var(--space-4);font-family:var(--font-serif);font-size:22px;line-height:1.4;color:var(--ink)}
+.post-cite a{font-size:14px;color:var(--ink-muted)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2);margin:var(--space-8) 0;padding:var(--space-6);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field)}
+.flow span{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border:var(--hairline) solid var(--line-strong);border-radius:var(--radius-pill);font-size:15px;font-weight:500;line-height:1.2;color:var(--ink);background:var(--surface)}
+.flow span.is-key{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.flow em{font-style:normal;color:var(--ink-muted)}
+.fig{margin:var(--space-8) 0}
+.fig figcaption{margin-top:var(--space-3);font-size:14px;color:var(--ink-muted)}
+.fig--wide{width:min(1040px,calc(100vw - 80px));margin-left:50%;transform:translateX(-50%)}
+.stages{display:grid;grid-template-columns:repeat(5,minmax(180px,1fr));gap:var(--space-3);overflow-x:auto;padding-bottom:var(--space-2);scroll-snap-type:x mandatory}
+.stage{scroll-snap-align:start}
+.stage{display:flex;flex-direction:column;gap:var(--space-2);min-height:280px;padding:var(--space-4);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field);font-size:14px;line-height:1.45}
+.stage small{font-size:13px;color:var(--ink-muted)}
+.stage strong{font-family:var(--font-serif);font-size:21px;font-weight:400;line-height:1.15}
+.stage .tools{margin:var(--space-2) 0 auto;display:flex;flex-wrap:wrap;gap:6px}
+.stage .tools i{font-style:normal;padding:2px 8px;border:var(--hairline) solid var(--line);border-radius:var(--radius-pill);font-size:12.5px}
+.stage .you{padding-top:var(--space-2);border-top:var(--hairline) solid var(--line);color:var(--ink)}
+.stage .you b{font-weight:500}
+.stage[data-theme="oscuro"]{background:var(--surface);border-color:var(--surface);color:var(--ink)}
+.stage .pill{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border-radius:var(--radius-pill);background:var(--accent-tint);font-size:12px;font-weight:500;color:var(--ink)}
+.stage .pill::before{content:"";width:6px;height:6px;border-radius:9px;background:var(--accent)}
+.agent{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-3)}
+.agent > div{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-4);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field);font-size:15px;line-height:1.5}
+.agent small{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+.agent strong{font-family:var(--font-serif);font-size:26px;font-weight:400;line-height:1.1}
+.agent .ex{margin-top:auto;padding-top:var(--space-3);border-top:var(--hairline) solid var(--line);font-size:13.5px;color:var(--ink-muted)}
+.agent-band{grid-column:1/-1;padding:var(--space-4) var(--space-6);border-radius:var(--radius-sm);background:var(--tinta-950);color:var(--papel);font-family:var(--font-serif);font-size:21px;line-height:1.35}
+.agent-band span{color:var(--verde-400)}
+.chat{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-2);padding:var(--space-6);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field);font-size:15.5px;line-height:1.45}
+.chat-head{align-self:center;display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:var(--space-4);font-size:14px}
+.chat-head i{width:44px;height:44px;border-radius:99px;border:12px solid var(--line-strong);box-sizing:border-box}
+.chat-head b{font-weight:500}.chat-head span{color:var(--ink-muted);font-size:13px}
+.chat time{align-self:center;font-size:12.5px;color:var(--ink-muted);margin-bottom:var(--space-2)}
+.chat p{margin:0;max-width:88%;padding:10px 16px;border-radius:18px;background:var(--surface-raised);color:var(--ink)}
+.sae{display:grid;grid-template-columns:auto 24px auto 24px minmax(0,1fr) 24px auto 24px auto;align-items:center;gap:0;padding:var(--space-6);border:var(--hairline) solid var(--line);border-radius:var(--radius-sm);background:var(--field);font-size:14px}
+.sae .n{padding:10px 14px;border:var(--hairline) solid var(--line-strong);border-radius:var(--radius-sm);background:var(--surface);font-weight:500;text-align:center}
+.sae .n.dark{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.sae .arr{text-align:center;color:var(--ink-muted)}
+.sae .feats{display:flex;flex-direction:column;gap:6px}
+.sae .feats span{padding:6px 10px;border:var(--hairline) solid var(--line);border-radius:var(--radius-pill);background:var(--surface);font-size:13px}
+.sae .feats b{font-weight:500}
+.post-more{padding:var(--space-16) 0 var(--space-8);border-top:var(--hairline) solid var(--line)}
+.post-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-6);margin:var(--space-8) 0 var(--space-16);padding:var(--space-12);border-radius:var(--radius-sm);background:var(--surface)}
+.post-cta .inf-title{max-width:16em}
+.post-cta p{margin:var(--space-3) 0 0;font-family:var(--font-sans);font-size:16px;color:var(--ink-muted)}
+@media (max-width:640px){.fig--wide{width:calc(100vw - 40px)}}
+@media (max-width:800px){.agent{grid-template-columns:minmax(0,1fr)}.sae{grid-template-columns:minmax(0,1fr);gap:var(--space-2)}.sae .arr{transform:rotate(90deg)}.post-dl{grid-template-columns:minmax(0,1fr)}.post-dl dt{border-bottom:0;padding-bottom:0}.post-cta{padding:var(--space-8)}.post-body{font-size:17px}}
+
+.rail-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--space-4)}
+.rail-head p{margin:var(--space-2) 0 0;font-family:var(--font-sans);font-size:15px;color:var(--ink-muted)}
+.rail-ctrl{display:flex;gap:var(--space-2)}
+.rail-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:var(--hairline) solid var(--ink);border-radius:var(--radius-pill);background:transparent;color:var(--ink);font:500 18px/1 var(--font-sans);cursor:pointer;transition:background-color 160ms ease-out,color 160ms ease-out}
+.rail-btn:hover{background:var(--ink);color:var(--surface)}
+.rail-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.post-rail{display:grid;grid-auto-flow:column;grid-auto-columns:360px;gap:var(--space-6);margin:0 calc(50% - 50vw) 0 0;padding:var(--space-2) calc(50vw - 50%) var(--space-6) 0;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--line) transparent;-webkit-overflow-scrolling:touch}
+.post-rail::-webkit-scrollbar{height:6px}.post-rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
+.post-card{scroll-snap-align:start;margin:0}
+.post-card__link{display:flex;flex-direction:column;gap:var(--space-3);height:100%;color:var(--ink);text-decoration:none}
+.post-card__media{display:block;aspect-ratio:16/10;overflow:hidden;border-radius:var(--radius-sm);background:var(--tinta-950);margin-bottom:var(--space-2)}
+.post-card__media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.post-card__link:hover .post-card__media img{transform:scale(1.03)}
+.post-card__link:focus-visible{outline:2px solid var(--focus);outline-offset:4px;border-radius:2px}
+.post-card__meta{font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:.02em;color:var(--ink-muted)}
+.post-card__title{margin:0;font-family:var(--font-serif);font-size:24px;font-weight:400;line-height:1.2;letter-spacing:-0.01em;color:var(--ink);text-wrap:balance}
+.post-card__link:hover .post-card__title{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.post-card__dek{font-family:var(--font-sans);font-size:15px;line-height:1.55;color:var(--ink-muted)}
+@media (max-width:640px){.post-rail{grid-auto-columns:80vw;gap:var(--space-4)}.rail-ctrl{display:none}}
+</style>
+</head>
+<body>
+<main class="inf-page" style="width: 100%">
+<div class="inf-container">
+<header class="inf-nav">
+<a class="inf-wordmark" href="../../" aria-label="SIS, Super Intelligence Society by AiYaiYai, inicio"><span class="inf-wordmark__name">SIS<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">Super Intelligence Society<span>by AiYaiYai</span></span></a>
+<nav class="inf-nav__links" aria-label="Principal">
+<a class="inf-nav__link" href="../../#escribimos">Temas</a>
+<a class="inf-nav__link" href="../../#videos">Videos</a>
+<a class="inf-btn inf-btn--primary" href="../../#aplicar">Aplicar</a>
+</nav>
+</header>
+<article>
+<div class="post-wrap">
+<header class="post-head">
+<a class="post-back" href="../../#escribimos">← Temas de los que escribimos</a>
+<p class="post-eyebrow"><b>Investigación</b><span>Mayo de 2026</span><span>6 min de lectura</span></p>
+<h1 class="inf-display">Los modelos generativos de IA tienen un enemigo: los humanos</h1>
+<p class="inf-lead">Los LLMs aprendieron de nosotros. El reto ahora es que aprendan más allá de nosotros.</p>
+</header>
+</div>
+<img class="post-cover" src="../../assets/img/modelos-mas-alla-de-nosotros.png" width="1600" height="1000" alt="">
+<div class="post-wrap post-body">
+<p>Los modelos generativos de inteligencia artificial son muy buenos para trabajar y generar texto, video o audio con base en información que los humanos ya sabemos y les proporcionamos.</p>
+<p>Pueden resumir, escribir, programar, traducir, razonar sobre documentos y combinar ideas mejor que casi cualquier herramienta que habíamos tenido antes. Pero:</p>
+<blockquote>¿Qué pasa cuando queremos que la IA descubra cosas que los humanos todavía no sabemos?</blockquote>
+<p>Los LLMs y los modelos multimodales son extremadamente potentes. La mayoría de nosotros ya usamos estas herramientas todos los días, y algunos hasta hemos desarrollado algo parecido a una dependencia hacia ChatGPT, Claude o Gemini.</p>
+<p>Pero estos modelos tienen un problema serio. Y el principal, al menos hasta hoy, es que dependen de nosotros, los humanos, para seguir mejorando.</p>
+<blockquote>Eso es un techo. El problema es que los humanos no somos un feature en esta historia, somos un bug.</blockquote>
+<p>Fei-Fei Li, una de las investigadoras más reconocidas, ha señalado el problema de la obsesión con los LLM:</p>
+<figure class="post-cite"><p>“La industria está peligrosamente enfocada en los modelos de lenguaje. La mayor parte de la economía real es física, perceptual y espacial. Cuando la IA entienda por completo el mundo visual, deja de ser un chatbot y empieza a ser infraestructura.”</p><a href="https://x.com/JonhernandezIA/status/2053784194078101818" target="_blank" rel="noopener">Fei-Fei Li, citada en X ↗</a></figure>
+<h2>Cuando el conocimiento humano es el techo</h2>
+<p>Imaginemos por un momento que ChatGPT hubiera existido hace miles de años.</p>
+<p>Con el conocimiento que teníamos en ese momento, si le hubieras preguntado si la Tierra era plana, te habría dicho que sí. ¿Por qué? Porque esa era la verdad establecida en los libros y conversaciones de la época.</p>
+<p>Otro ejemplo. Si le hubieras preguntado a ChatGPT antes de 1954 si un ser humano podía correr la milla en menos de 4 minutos, te habría dicho que no.</p>
+<p>Porque ningún humano lo había hecho, y la creencia generalizada era que físicamente no se podía. Cuando Roger Bannister lo hizo, no fue porque la fisiología humana cambió. Fue porque alguien se atrevió a intentarlo.</p>
+<p>¿Qué tienen en común estos dos ejemplos? Que la “verdad” que un modelo entrenado en datos humanos te puede dar siempre está limitada por lo que los humanos sabemos en ese momento.</p>
+<p>Y esto es exactamente lo que pasa con los LLMs hoy. Son tan buenos como los datos que les dimos. Pero también tan limitados.</p>
+<p>Esto tiene un nombre técnico: RLHF, Reinforcement Learning from Human Feedback.</p>
+<p>Es el proceso por el cual los modelos se ajustan a partir de retroalimentación humana.</p>
+<p>Nosotros somos los profesores, los curadores, los jueces. Y esa es la fortaleza y, al mismo tiempo, un error en ese sistema.</p>
+<h2>¿Y si los modelos pudieran aprender solos?</h2>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=SUbqykXVx0A" target="_blank" rel="noopener">Ver en YouTube: Google DeepMind: AlphaGo masters the game of Go</a><iframe src="https://www.youtube-nocookie.com/embed/SUbqykXVx0A?rel=0" title="Google DeepMind: AlphaGo masters the game of Go" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p>Esta es exactamente la pregunta que se hizo el equipo de Google DeepMind cuando construyó AlphaGo, un modelo que terminó venciendo al campeón mundial de Go.</p>
+<p>Lo verdaderamente impresionante de ese partido no fue solo que ganara. Fue que el modelo hizo un movimiento (el ahora famoso “move 37”) que ningún humano habría considerado.</p>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=JNrXgpSEEIE" target="_blank" rel="noopener">Ver en YouTube: Move 37: Lee Sedol vs AlphaGo, partida 2</a><iframe src="https://www.youtube-nocookie.com/embed/JNrXgpSEEIE?rel=0" title="Move 37: Lee Sedol vs AlphaGo, partida 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p>Durante la partida, los comentaristas pensaron que era un error. Después se dieron cuenta de que era una jugada que el modelo había descubierto por sí solo, después de millones de iteraciones jugando contra sí mismo. Una jugada que estaba fuera del repertorio de la humanidad.</p>
+<p>Hace unas semanas pasó algo parecido, pero en otro dominio. OpenAI publicó que uno de sus modelos resolvió un problema matemático abierto. Otra vez: una respuesta que no estaba en los datos de entrenamiento humanos. Surgió del modelo aprendiendo más allá de nosotros.</p>
+<p>Esto tiene un nombre nuevo:</p>
+<blockquote>Reinforcement Learning from Verifiable Rewards (RLVR)</blockquote>
+<p>La premisa es imitar la forma en que aprendemos los humanos: por recompensa.</p>
+<p>Cada acción que hacemos tiene una consecuencia. Una señal positiva o negativa, dependiendo del contexto.</p>
+<ul><li>Si pones la mano en el fuego, tu sistema nervioso te manda una señal negativa. Aprendes a no hacerlo otra vez.</li><li>Si sacas un 100 en clase y tus papás te felicitan, esa es una señal positiva. Aprendes que vale la pena estudiar.</li></ul>
+<h2>Cómo funciona RLVR (versión simplificada)</h2>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=52UlnK-SW7I" target="_blank" rel="noopener">Ver en YouTube: What are RLVR environments for LLMs?</a><iframe src="https://www.youtube-nocookie.com/embed/52UlnK-SW7I?rel=0" title="What are RLVR environments for LLMs?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<ol><li>Construyes un entorno. Hoy esto puede significar muchas cosas, pero básicamente es un espacio donde una tarea tiene reglas, estado y recompensas (positivas o negativas) claramente verificables.</li><li>Dejas al modelo explorar. A medida que interactúa con el entorno, el modelo aprende. Por ejemplo, cómo resolver una suma o una multiplicación. Si toma muchas decisiones equivocadas, se penaliza. Si toma decisiones correctas, recibe recompensa. Y se mueve hacia donde hay más señal positiva.</li></ol>
+<p>El detalle importante: para que esto funcione, las recompensas tienen que ser verificables.</p>
+<p>Por ejemplo, sumar 2 + 2 = 4 es fácil de verificar.</p>
+<ul><li>Resolver un problema de matemáticas también.</li><li>Escribir código que pase una serie de tests también.</li><li>Pero “redactar un correo elegante” o “dar consejo de relaciones” no es verificable de la misma manera.</li></ul>
+<p>Por eso hoy RLVR funciona mejor en matemáticas, código y juegos que en, digamos, escritura creativa.</p>
+<p>Pero ojo: incluso aquí seguimos en el problema original. Los humanos diseñamos los entornos y las recompensas. Y eso introduce nuestros sesgos y nuestros límites.</p>
+<p>Si el entorno está mal diseñado, el modelo aprende cosas raras. Hay un efecto llamado “reward hacking” en el que los modelos encuentran formas absurdas de maximizar la recompensa que el diseñador humano no anticipó.</p>
+<p>Lo verdaderamente bitter-lesson-pilled sería que el modelo aprendiera por sí solo, en el mundo real, sin que nosotros le digamos qué está bien y qué está mal. Aquí entra el siguiente concepto.</p>
+<h2>World models: aprender en una simulación del mundo</h2>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=YxkGdX4WIBE" target="_blank" rel="noopener">Ver en YouTube: Project Genie: mundos interactivos infinitos</a><iframe src="https://www.youtube-nocookie.com/embed/YxkGdX4WIBE?rel=0" title="Project Genie: mundos interactivos infinitos" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p>Idealmente, los modelos podrían interactuar con un entorno real, igual que nosotros, y descubrir por sí mismos qué es señal positiva y qué es negativa.</p>
+<p>Esto es particularmente relevante para problemas del mundo físico. Por ejemplo: conducción autónoma.</p>
+<p>Empresas como Waymo, Tesla y Cruise hoy usan world models. Son modelos que aprendieron a representar el mundo (la física, las carreteras, los peatones, el clima) con suficiente fidelidad como para que un sistema de IA pueda entrenarse adentro y aprender sin necesidad de chocar autos reales.</p>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=YQevxUYPRDE" target="_blank" rel="noopener">Ver en YouTube: Waymo World Model, construido sobre Genie 3</a><iframe src="https://www.youtube-nocookie.com/embed/YQevxUYPRDE?rel=0" title="Waymo World Model, construido sobre Genie 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p>Más todavía: estos modelos pueden predecir las consecuencias de segundo orden de una acción. Por ejemplo:</p>
+<p>Si un Waymo está pensando girar a la izquierda, primero predice lo que va a pasar después: ¿hay alguien cruzando la calle? ¿El carro que viene en sentido contrario va a frenar? ¿La calle tiene alguna obstrucción más adelante? El modelo simula varios futuros posibles, evalúa cuál tiene mejor resultado y solo entonces actúa.</p>
+<p>El mismo principio aplica para robots de cualquier tipo. Si quieres que un robot aprenda a doblar ropa, no quieres que falle un millón de veces con ropa real. Quieres que falle un millón de veces en una simulación, y luego baje al mundo físico con el comportamiento ya pulido.</p>
+<h2>El futuro de los modelos de IA</h2>
+<div class="post-video"><a href="https://www.youtube.com/watch?v=21EYKqUsPfg" target="_blank" rel="noopener">Ver en YouTube: Richard Sutton: por qué los LLMs no son el final del camino</a><iframe src="https://www.youtube-nocookie.com/embed/21EYKqUsPfg?rel=0" title="Richard Sutton: por qué los LLMs no son el final del camino" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p>Los próximos 5 a 10 años en el campo de la IA no se van a parecer a los últimos 3. Los LLMs nos dieron una nueva interfaz para usar conocimiento humano. Pero eso no necesariamente es lo mismo que crear conocimiento nuevo.</p>
+<blockquote>Clases enteras de problemas solo se van a resolver cuando los modelos puedan aprender por sí solos del mundo: control físico, robótica, decisiones secuenciales complejas; en fin, resultados que van más allá de patrones conocidos por humanos.</blockquote>
+</div>
+</article>
+<section class="post-more" aria-labelledby="mas-titulo">
+<div class="rail-head"><h2 class="inf-heading" id="mas-titulo">Sigue leyendo</h2></div>
+<ul class="post-rail" style="margin-top: 32px">
+<li class="post-card"><a class="post-card__link" href="../../blog/agentes-always-on/"><span class="post-card__media"><img src="../../assets/img/agentes-always-on.png" width="1600" height="1000" alt=""></span><span class="post-card__meta">Agentes · 2 min de lectura</span><h3 class="post-card__title">Agentes always-on: qué son y cómo empezar</h3><span class="post-card__dek">La nueva categoría de agentes que trabajan en segundo plano, y por qué el contexto de tu empresa es lo que más importa.</span></a></li>
+<li class="post-card"><a class="post-card__link" href="../../blog/un-llm-no-es-todo-tu-sistema/"><span class="post-card__media"><img src="../../assets/img/un-llm-no-es-todo-tu-sistema.png" width="1600" height="1000" alt=""></span><span class="post-card__meta">Arquitectura · 5 min de lectura</span><h3 class="post-card__title">Por qué un LLM no debería ser todo tu sistema de IA</h3><span class="post-card__dek">En radiología, y en muchas industrias, el problema no es generar texto sino generar confianza verificable.</span></a></li>
+<li class="post-card"><a class="post-card__link" href="../../blog/lo-que-viene-despues-de-los-llm/"><span class="post-card__media"><img src="../../assets/img/lo-que-viene-despues-de-los-llm.png" width="1600" height="1000" alt=""></span><span class="post-card__meta">Physical AI · 10 min de lectura</span><h3 class="post-card__title">Pocos están prestando atención a lo que viene después de ChatGPT y los LLM</h3><span class="post-card__dek">Los modelos fundacionales están a punto de hacer con la robótica lo mismo que ChatGPT hizo con el lenguaje.</span></a></li>
+</ul>
+</section>
+</div>
+<div data-theme="oscuro" style="background: var(--surface)">
+<div class="inf-container">
+<div class="post-cta">
+<div><h2 class="inf-title">¿Estás llevando IA a tu negocio?</h2><p>SIS es gratis. Se entra por aplicación.</p></div>
+<a class="inf-btn inf-btn--primary" href="../../#aplicar">Aplicar a SIS</a>
+</div>
+</div>
+</div>
+<div class="inf-container">
+<footer class="inf-footer">
+<a class="inf-wordmark" href="../../" aria-label="SIS, Super Intelligence Society by AiYaiYai"><span class="inf-wordmark__name">SIS<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">Super Intelligence Society<span>by AiYaiYai</span></span></a>
+<span>© 2026 AiYaiYai</span>
+</footer>
+</div>
+</main>
+<script>
+document.querySelectorAll('[data-submit]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var f = b.form; if (f && !f.reportValidity()) return;
+    if (f) f.reset();
+    var s = f && f.querySelector('[data-sent]'); if (s) s.hidden = false;
+  });
+});
+document.querySelectorAll('[data-days]').forEach(function (el) {
+  var d = Math.ceil((new Date('2026-11-16T00:00:00-06:00') - Date.now()) / 86400000);
+  if (d > 0) { el.querySelector('[data-days-n]').textContent = d; el.hidden = false; }
+});
+document.querySelectorAll('[data-rail]').forEach(function (rail) {
+  var sec = rail.closest('section'); var ctrl = sec && sec.querySelector('[data-rail-ctrl]');
+  if (!ctrl) return; ctrl.hidden = false;
+  var step = function () { var c = rail.querySelector('li'); return c ? c.getBoundingClientRect().width + 24 : 400; };
+  ctrl.querySelector('[data-rail-prev]').addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  ctrl.querySelector('[data-rail-next]').addEventListener('click', function () { rail.scrollBy({ left: step(), behavior: 'smooth' }); });
+});
+document.querySelectorAll('[data-yt]').forEach(function (a) {
+  a.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + a.getAttribute('data-yt') + '?autoplay=1&rel=0';
+    f.title = a.getAttribute('aria-label') || 'Video';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.allowFullscreen = true;
+    var box = document.createElement('div'); box.className = 'vid__frame'; box.appendChild(f);
+    a.replaceWith(box);
+  });
+});
+</script>
+</body>
+</html>
