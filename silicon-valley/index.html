@@ -37,6 +37,17 @@ a{color:var(--ink)}
 .sv-guest__avatar{flex:none;display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:var(--radius-pill);background:var(--surface-raised);font-family:var(--font-sans);font-size:17px;font-weight:500;color:var(--ink-muted)}
 .sv-topics{margin:0;padding:0;list-style:none;border-top:var(--hairline) solid var(--line)}
 .sv-topic{padding:var(--space-4) 0;border-bottom:var(--hairline) solid var(--line);font-family:var(--font-sans);font-size:17px;line-height:1.5;color:var(--ink)}
+.sv-cover{position:relative;isolation:isolate;overflow:hidden;background:#0a0c0b}
+.sv-cover__img{position:absolute;inset:0;z-index:-2;display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.sv-cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,10,9,.86) 0%,rgba(8,10,9,.62) 50%,rgba(8,10,9,.15) 100%),linear-gradient(180deg,rgba(8,10,9,.55) 0%,rgba(8,10,9,0) 30%,rgba(8,10,9,0) 60%,rgba(8,10,9,.85) 100%)}
+@media (max-width:800px){.sv-cover::before{background:linear-gradient(180deg,rgba(8,10,9,.78) 0%,rgba(8,10,9,.7) 60%,rgba(8,10,9,.9) 100%)}}
+.sv-cover .inf-hero{padding-bottom:var(--space-16)}
+.sv-cover .sv-facts{padding-bottom:var(--space-12);border-top-color:rgba(255,255,255,.22)}
+.sv-cover .inf-display,.sv-cover .inf-lead{text-shadow:0 1px 24px rgba(0,0,0,.35)}
+.sv-person__link{justify-self:start;align-self:start;font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
+.sv-person__link:hover{text-decoration-color:var(--ink)}
+@media (min-width:801px){.inf-feature{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:var(--space-2)}}
+@media (min-width:901px){.sv-person{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:var(--space-3)}.sv-person > *{align-self:start}}
 img.sv-guest__avatar{object-fit:cover}
 .sv-gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,240px));gap:var(--space-3);margin:var(--space-8) 0 0;padding:0;list-style:none}
 .sv-gallery li{margin:0;overflow:hidden;border-radius:var(--radius-sm);background:var(--surface-raised)}
@@ -56,6 +67,8 @@ img.sv-guest__avatar{object-fit:cover}
 <body>
 <main class="inf-page" style="width: 100%">
 
+<div class="sv-cover" data-theme="oscuro">
+<img class="sv-cover__img" src="../assets/img/sf-noche.jpg" width="1920" height="1080" alt="">
 <div class="inf-container">
 <header class="inf-nav">
 <a class="inf-wordmark" href="../" aria-label="Inference by Aiyaiyai, inicio"><span class="inf-wordmark__name">Inference<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">by Aiyaiyai</span></a>
@@ -82,8 +95,11 @@ img.sv-guest__avatar{object-fit:cover}
 <div class="sv-fact"><dt>Lugares</dt><dd>18</dd></div>
 <div class="sv-fact"><dt>Edad</dt><dd>Sin límite</dd></div>
 </dl>
+</div>
+</div>
 
-<section class="inf-section" id="programa" style="margin-top: 64px">
+<div class="inf-container">
+<section class="inf-section" id="programa" style="border-top: 0">
 <h2 class="inf-heading">La idea</h2>
 <div class="inf-features">
 <article class="inf-feature">
@@ -191,6 +207,7 @@ img.sv-guest__avatar{object-fit:cover}
 <li><img src="../assets/img/shark-tank.png" width="93" height="18" alt="Shark Tank"></li>
 <li><img src="../assets/img/endeavor.png" width="114" height="15" alt="Endeavor"></li>
 </ul>
+<a class="sv-person__link" href="https://www.linkedin.com/in/alextorrenegra/" target="_blank" rel="noopener">LinkedIn de Alexander ↗</a>
 </article>
 <article class="sv-person">
 <img class="sv-person__photo" src="../assets/img/tania-zapata.jpg" width="240" height="300" alt="Tania Zapata">
@@ -202,6 +219,7 @@ img.sv-guest__avatar{object-fit:cover}
 <li><img src="../assets/img/stanford.png" width="80" height="26" alt="Stanford"></li>
 <li><img src="../assets/img/endeavor.png" width="114" height="15" alt="Endeavor"></li>
 </ul>
+<a class="sv-person__link" href="https://www.linkedin.com/in/taniazapata/" target="_blank" rel="noopener">LinkedIn de Tania ↗</a>
 </article>
 <article class="sv-person">
 <img class="sv-person__photo" src="../assets/img/alan-arguello-sf.jpg" width="240" height="300" alt="Alan Argüello">
@@ -212,6 +230,7 @@ img.sv-guest__avatar{object-fit:cover}
 <li><img src="../assets/img/georgia.png" width="135" height="24" alt="Georgia Tech"></li>
 <li><img src="../assets/img/platanus.png" width="155" height="16" alt="Platanus Ventures"></li>
 </ul>
+<a class="sv-person__link" href="https://www.linkedin.com/in/alan-arguello" target="_blank" rel="noopener">LinkedIn de Alan ↗</a>
 </article>
 </div>
 </section>
