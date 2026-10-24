@@ -37,17 +37,18 @@ a{color:var(--ink)}
 .sv-guest__avatar{flex:none;display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:var(--radius-pill);background:var(--surface-raised);font-family:var(--font-sans);font-size:17px;font-weight:500;color:var(--ink-muted)}
 .sv-topics{margin:0;padding:0;list-style:none;border-top:var(--hairline) solid var(--line)}
 .sv-topic{padding:var(--space-4) 0;border-bottom:var(--hairline) solid var(--line);font-family:var(--font-sans);font-size:17px;line-height:1.5;color:var(--ink)}
-.sv-cover{position:relative;isolation:isolate;overflow:hidden;background:#0a0c0b}
-.sv-cover__img{position:absolute;inset:0;z-index:-2;display:block;width:100%;height:100%;object-fit:cover;object-position:center 55%}
-.sv-cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,10,9,.86) 0%,rgba(8,10,9,.62) 50%,rgba(8,10,9,.15) 100%),linear-gradient(180deg,rgba(8,10,9,.55) 0%,rgba(8,10,9,0) 30%,rgba(8,10,9,0) 60%,rgba(8,10,9,.85) 100%)}
-@media (max-width:800px){.sv-cover::before{background:linear-gradient(180deg,rgba(8,10,9,.78) 0%,rgba(8,10,9,.7) 60%,rgba(8,10,9,.9) 100%)}}
-.sv-cover .inf-hero{padding-bottom:var(--space-16)}
-.sv-cover .sv-facts{padding-bottom:var(--space-12);border-top-color:rgba(255,255,255,.22)}
-.sv-cover .inf-display,.sv-cover .inf-lead{text-shadow:0 1px 24px rgba(0,0,0,.35)}
 .sv-person__link{justify-self:start;align-self:start;font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
 .sv-person__link:hover{text-decoration-color:var(--ink)}
 @media (min-width:801px){.inf-feature{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:var(--space-2)}}
 @media (min-width:901px){.sv-person{display:grid;grid-row:span 6;grid-template-rows:subgrid;row-gap:var(--space-3)}.sv-person > *{align-self:start}}
+.art-cover{position:relative;isolation:isolate;overflow:hidden;background:var(--surface)}
+.art-cover__img{position:absolute;inset:0;z-index:-2;display:block;width:100%;height:100%;object-fit:cover;object-position:center bottom}
+.art-cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--surface) 0%,rgba(244,245,242,.85) 22%,rgba(244,245,242,0) 55%),linear-gradient(90deg,rgba(244,245,242,.9) 0%,rgba(244,245,242,.55) 38%,rgba(244,245,242,0) 62%)}
+.art-cover .inf-hero{padding-bottom:clamp(240px,26vw,400px)}
+.split-art{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-sm);margin-top:var(--space-2)}
+@media (max-width:800px){.art-cover::before{background:linear-gradient(180deg,var(--surface) 0%,rgba(244,245,242,.9) 45%,rgba(244,245,242,0) 75%)}.art-cover .inf-hero{padding-bottom:220px}}
+.sv-band{position:relative;isolation:isolate;overflow:hidden}
+.sv-band__img{position:absolute;left:0;right:0;bottom:0;z-index:-1;display:block;width:100%;height:62%;object-fit:cover;object-position:center bottom;opacity:.5;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 70%);mask-image:linear-gradient(180deg,transparent 0%,#000 70%)}
 img.sv-guest__avatar{object-fit:cover}
 .sv-gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,240px));gap:var(--space-3);margin:var(--space-8) 0 0;padding:0;list-style:none}
 .sv-gallery li{margin:0;overflow:hidden;border-radius:var(--radius-sm);background:var(--surface-raised)}
@@ -67,8 +68,8 @@ img.sv-guest__avatar{object-fit:cover}
 <body>
 <main class="inf-page" style="width: 100%">
 
-<div class="sv-cover" data-theme="oscuro">
-<img class="sv-cover__img" src="../assets/img/sf-noche.jpg" width="1920" height="1080" alt="">
+<div class="art-cover">
+<img class="art-cover__img" src="../assets/img/golden-gate-grabado.jpg" width="2400" height="1600" alt="">
 <div class="inf-container">
 <header class="inf-nav">
 <a class="inf-wordmark" href="../" aria-label="Inference by Aiyaiyai, inicio"><span class="inf-wordmark__name">Inference<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">by Aiyaiyai</span></a>
@@ -88,6 +89,10 @@ img.sv-guest__avatar{object-fit:cover}
 <a class="inf-btn inf-btn--secondary" href="#precio">Ver precio</a>
 </div>
 </section>
+</div>
+</div>
+
+<div class="inf-container">
 <dl class="sv-facts">
 <div class="sv-fact"><dt>Cuándo</dt><dd>Mediados de enero de 2027</dd></div>
 <div class="sv-fact"><dt>Dónde</dt><dd>Una casa en San Francisco</dd></div>
@@ -95,7 +100,6 @@ img.sv-guest__avatar{object-fit:cover}
 <div class="sv-fact"><dt>Lugares</dt><dd>18</dd></div>
 <div class="sv-fact"><dt>Edad</dt><dd>Sin límite</dd></div>
 </dl>
-</div>
 </div>
 
 <div class="inf-container">
@@ -132,6 +136,7 @@ img.sv-guest__avatar{object-fit:cover}
 <div class="inf-split">
 <div class="inf-split__lead">
 <h2 class="inf-heading">Temáticas que vamos a tratar</h2>
+<img class="split-art" src="../assets/img/starship.jpg" width="1600" height="900" alt="">
 </div>
 <ul class="sv-topics">
 <li class="sv-topic">El mindset de Silicon Valley</li>
@@ -157,6 +162,7 @@ img.sv-guest__avatar{object-fit:cover}
 </div>
 
 <div class="sv-band" data-theme="oscuro" id="precio">
+<img class="sv-band__img" src="../assets/img/ascii-noche-v2.jpg" width="1128" height="612" alt="">
 <div class="inf-container">
 <section class="inf-section">
 <div class="inf-split">

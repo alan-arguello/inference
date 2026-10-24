@@ -11,6 +11,13 @@
 <style>
 body{margin:0;background:var(--surface);-webkit-font-smoothing:antialiased}
 a{color:var(--ink)}
+.art-cover{position:relative;isolation:isolate;overflow:hidden;background:var(--surface)}
+.art-cover__img{position:absolute;inset:0;z-index:-2;display:block;width:100%;height:100%;object-fit:cover;object-position:center bottom}
+.art-cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--surface) 0%,rgba(244,245,242,.85) 22%,rgba(244,245,242,0) 55%),linear-gradient(90deg,rgba(244,245,242,.9) 0%,rgba(244,245,242,.55) 38%,rgba(244,245,242,0) 62%)}
+.art-cover .inf-hero{padding-bottom:clamp(240px,26vw,400px)}
+.split-art{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-sm);margin-top:var(--space-2)}
+@media (max-width:800px){.art-cover::before{background:linear-gradient(180deg,var(--surface) 0%,rgba(244,245,242,.9) 45%,rgba(244,245,242,0) 75%)}.art-cover .inf-hero{padding-bottom:220px}}
+.art-cover--main::before{background:linear-gradient(180deg,var(--surface) 0%,rgba(244,245,242,.8) 25%,rgba(244,245,242,0) 55%)}
 .inf-topics{margin:0;padding:0;list-style:none;border-top:var(--hairline) solid var(--line)}
 .inf-topic{padding:var(--space-4) 0;border-bottom:var(--hairline) solid var(--line);font-family:var(--font-sans);font-size:17px;line-height:1.5;color:var(--ink)}
 @media (min-width:801px){.inf-feature{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:var(--space-2)}}
@@ -31,6 +38,8 @@ a{color:var(--ink)}
 <body>
 <main class="inf-page" style="width: 100%">
 
+<div class="art-cover art-cover--main">
+<img class="art-cover__img" src="assets/img/desierto-v2.jpg" width="1182" height="780" alt="">
 <div class="inf-container">
 <header class="inf-nav">
 <a class="inf-wordmark" href="#top" aria-label="Inference by Aiyaiyai, inicio"><span class="inf-wordmark__name">Inference<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">by Aiyaiyai</span></a>
@@ -49,6 +58,7 @@ a{color:var(--ink)}
 <a class="inf-btn inf-btn--primary" href="#aplicar">Aplicar</a>
 </div>
 </section>
+</div>
 </div>
 
 <section id="eventos" aria-labelledby="eventos-titulo">
@@ -119,6 +129,7 @@ a{color:var(--ink)}
 <div class="inf-split">
 <div class="inf-split__lead">
 <h2 class="inf-heading">Algunos de los temas que discutimos</h2>
+<img class="split-art" src="assets/img/playa-ascii.jpg" width="1200" height="800" alt="">
 </div>
 <ul class="inf-topics">
 <li class="inf-topic">Cómo hacer que tu equipo adopte IA</li>
@@ -246,7 +257,7 @@ a{color:var(--ink)}
 <h2 class="inf-heading" id="proximos-titulo">Conoce nuestros próximos eventos premium</h2>
 <ul class="inf-premium">
 <li class="inf-event">
-<a class="inf-event__media" href="https://www.aiyaiyai.io" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span><img src="assets/img/bogota-skyline.jpg" width="1200" height="800" alt=""></span></a>
+<a class="inf-event__media" href="https://www.aiyaiyai.io" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span><img src="assets/img/bogota-grabado.jpg" width="1600" height="1067" alt=""></span></a>
 <p class="inf-event__meta">Jueves 19 de noviembre de 2026 · Bogotá</p>
 <h3 class="inf-event__title">Evento en Bogotá</h3>
 <p class="inf-event__body">Un día para founders, managers y C-levels: charla, fireside chat y workshop con Alexander Torrenegra, Tania Zapata y Alan Argüello.</p>
@@ -254,7 +265,7 @@ a{color:var(--ink)}
 <a class="inf-btn inf-btn--primary" href="https://www.aiyaiyai.io" target="_blank" rel="noopener">Ver evento en Bogotá</a>
 </li>
 <li class="inf-event">
-<a class="inf-event__media" href="silicon-valley/" tabindex="-1" aria-hidden="true"><span><img src="assets/img/sf-golden-gate.jpg" width="1200" height="800" alt=""></span></a>
+<a class="inf-event__media" href="silicon-valley/" tabindex="-1" aria-hidden="true"><span><img src="assets/img/sf-grabado.jpg" width="1600" height="1067" alt=""></span></a>
 <p class="inf-event__meta">Enero de 2027 · San Francisco</p>
 <h3 class="inf-event__title">Silicon Valley Immersion 2027</h3>
 <p class="inf-event__body">Una semana viviendo en una casa en San Francisco con otros builders, visitando las empresas que están construyendo el futuro.</p>
