@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inference by Aiyaiyai</title>
+<meta name="description" content="Comunidad privada donde líderes que están adoptando IA comparten qué les funciona y qué no.">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/bundle.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;family=Geist:wght@400;500&amp;family=Instrument+Sans:wght@600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:var(--surface);-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}
+.inf-topics{margin:0;padding:0;list-style:none;border-top:var(--hairline) solid var(--line)}
+.inf-topic{padding:var(--space-4) 0;border-bottom:var(--hairline) solid var(--line);font-family:var(--font-sans);font-size:17px;line-height:1.5;color:var(--ink)}
+.inf-premium{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-8);margin:var(--space-8) 0 0;padding:0;list-style:none}
+.inf-event{display:flex;flex-direction:column;gap:var(--space-3);margin:0}
+.inf-event__media{display:block;aspect-ratio:16/10;overflow:hidden;border-radius:var(--radius-sm);background:var(--surface-raised);margin-bottom:var(--space-3)}
+.inf-event__media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.inf-event:hover .inf-event__media img{transform:scale(1.02)}
+.inf-event__meta{margin:0;font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--accent)}
+.inf-event__title{margin:0;font-family:var(--font-serif);font-size:32px;font-weight:400;line-height:1.15;letter-spacing:-0.01em;color:var(--ink)}
+.inf-event__body{margin:0;max-width:52ch;font-family:var(--font-sans);font-size:16px;line-height:1.55;color:var(--ink-muted)}
+.inf-event__facts{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-6);margin:var(--space-1) 0 var(--space-3);padding:var(--space-3) 0 0;list-style:none;border-top:var(--hairline) solid var(--line);font-family:var(--font-sans);font-size:14px;color:var(--ink)}
+.inf-event .inf-btn{align-self:flex-start}
+@media (max-width:800px){.inf-premium{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<main class="inf-page" style="width: 100%">
+
+<div class="inf-container">
+<header class="inf-nav">
+<a class="inf-wordmark" href="#top" aria-label="Inference by Aiyaiyai, inicio"><span class="inf-wordmark__name">Inference<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">by Aiyaiyai</span></a>
+<nav class="inf-nav__links" aria-label="Principal">
+<a class="inf-nav__link" href="#proximos">Próximos eventos</a>
+<a class="inf-nav__link" href="#que-incluye">Qué incluye</a>
+<a class="inf-nav__link" href="#preguntas">Preguntas</a>
+<a class="inf-btn inf-btn--primary" href="https://www.aiyaiyai.io" target="_blank" rel="noopener">Evento en Bogotá</a>
+<a class="inf-btn inf-btn--secondary" href="#aplicar">Aplicar</a>
+</nav>
+</header>
+<section class="inf-hero" id="top">
+<h1 class="inf-display">La comunidad para managers, C-Levels y Founders que llevan IA a sus negocios</h1>
+<p class="inf-lead">Comunidad privada donde líderes que están adoptando IA comparten qué les funciona y qué no. Es gratis, pero se entra por aplicación.</p>
+<div class="inf-actions">
+<a class="inf-btn inf-btn--primary" href="#aplicar">Aplicar</a>
+</div>
+</section>
+</div>
+
+<section id="eventos" aria-labelledby="eventos-titulo">
+<div class="inf-container">
+<div class="inf-section inf-section--head">
+<h2 class="inf-heading" id="eventos-titulo">Algunos de nuestros eventos anteriores</h2>
+</div>
+</div>
+<div class="inf-marquee">
+<div class="inf-marquee__track">
+<ul class="inf-marquee__group">
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/encuentro.jpg" width="2000" height="1121" alt="Foto grupal de decenas de personas al final de un encuentro."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/panel.jpg" width="1860" height="1064" alt="Tres personas conversan sentadas en sillas de madera; una sostiene un micrófono."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/sesion-privada.jpg" width="1410" height="792" alt="Un grupo pequeño en sofás sigue una presentación en una pantalla grande."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/conversacion.jpg" width="1534" height="1042" alt="Una invitada conversa y ríe frente a un grupo pequeño."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/sesion-de-trabajo.jpg" width="640" height="480" alt="Personas trabajando con laptops alrededor de una mesa larga de madera."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/charla.jpg" width="640" height="480" alt="Sala llena escuchando a un ponente con micrófono."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/napa-charla.jpg" width="1600" height="1067" alt="Dos personas conversan frente a un grupo pequeño en una sala."></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/napa-comida.jpg" width="1600" height="1067" alt="Comida al aire libre en una mesa larga en un patio."></li>
+</ul>
+<ul class="inf-marquee__group" aria-hidden="true">
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/encuentro.jpg" width="2000" height="1121" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/panel.jpg" width="1860" height="1064" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/sesion-privada.jpg" width="1410" height="792" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/conversacion.jpg" width="1534" height="1042" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/sesion-de-trabajo.jpg" width="640" height="480" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/charla.jpg" width="640" height="480" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/napa-charla.jpg" width="1600" height="1067" alt=""></li>
+<li class="inf-marquee__item"><img class="inf-marquee__img" src="assets/img/napa-comida.jpg" width="1600" height="1067" alt=""></li>
+</ul>
+</div>
+</div>
+<div class="inf-container">
+<div class="inf-allies">
+<h2 class="inf-heading">Aliados de eventos anteriores</h2>
+<ul class="inf-logos">
+<li class="inf-logos__cell"><img class="inf-logos__img" src="assets/img/openai.png" width="109" height="30" alt="OpenAI"></li>
+<li class="inf-logos__cell"><img class="inf-logos__img" src="assets/img/anthropic.png" width="151" height="17" alt="Anthropic"></li>
+<li class="inf-logos__cell"><img class="inf-logos__img" src="assets/img/google-deepmind.png" width="162" height="22" alt="Google DeepMind"></li>
+<li class="inf-logos__cell"><img class="inf-logos__img" src="assets/img/lovable.png" width="118" height="20" alt="Lovable"></li>
+<li class="inf-logos__cell"><img class="inf-logos__img" src="assets/img/supabase.png" width="124" height="24" alt="Supabase"></li>
+<li class="inf-logos__cell"><img class="inf-logos__img" src="assets/img/v0.svg" width="46" height="22" alt="v0"></li>
+</ul>
+</div>
+</div>
+</section>
+
+<div class="inf-container">
+<section class="inf-section" id="proximos" aria-labelledby="proximos-titulo">
+<h2 class="inf-heading" id="proximos-titulo">Conoce nuestros próximos eventos premium</h2>
+<ul class="inf-premium">
+<li class="inf-event">
+<a class="inf-event__media" href="https://www.aiyaiyai.io" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/img/panel.jpg" width="1860" height="1064" alt=""></a>
+<p class="inf-event__meta">19 de noviembre de 2026 · Bogotá</p>
+<h3 class="inf-event__title">Evento y cena privada en Bogotá</h3>
+<p class="inf-event__body">Un día de charlas, fireside chat y workshop con Alexander Torrenegra, Tania Zapata y Alan Argüello. Cierra con una cena privada para 20 personas.</p>
+<ul class="inf-event__facts"><li>10 a. m. a 3 p. m.</li><li>Cena 7 p. m.</li><li>Presencial</li></ul>
+<a class="inf-btn inf-btn--primary" href="https://www.aiyaiyai.io" target="_blank" rel="noopener">Ver evento en Bogotá</a>
+</li>
+<li class="inf-event">
+<a class="inf-event__media" href="silicon-valley/" tabindex="-1" aria-hidden="true"><img src="assets/img/napa-sala.jpg" width="1600" height="1067" alt=""></a>
+<p class="inf-event__meta">Enero de 2027 · San Francisco</p>
+<h3 class="inf-event__title">Silicon Valley Immersion 2027</h3>
+<p class="inf-event__body">Una semana viviendo en una casa en San Francisco con otros builders, visitando las empresas que están construyendo el futuro.</p>
+<ul class="inf-event__facts"><li>1 semana</li><li>18 lugares</li><li>Early bird hasta el 16 de noviembre</li></ul>
+<a class="inf-btn inf-btn--secondary" href="silicon-valley/">Ver Silicon Valley Immersion</a>
+</li>
+</ul>
+</section>
+</div>
+
+<div class="inf-container">
+<section class="inf-section" id="que-incluye">
+<h2 class="inf-heading">Qué incluye</h2>
+<div class="inf-features">
+<article class="inf-feature">
+<h3 class="inf-feature__title">Casos en producción</h3>
+<p class="inf-feature__body">Cada dos semanas, un miembro presenta algo que ya implementó, con resultados y errores.</p>
+</article>
+<article class="inf-feature">
+<h3 class="inf-feature__title">Sesiones privadas</h3>
+<p class="inf-feature__body">Cada mes, una conversación sin grabación con alguien de un gobierno, un laboratorio de IA o una empresa líder.</p>
+</article>
+<article class="inf-feature">
+<h3 class="inf-feature__title">Eventos presenciales</h3>
+<p class="inf-feature__body">Cenas y encuentros pequeños en distintas ciudades, con lugar reservado para miembros.</p>
+</article>
+</div>
+</section>
+
+<section class="inf-section" id="temas">
+<div class="inf-split">
+<div class="inf-split__lead">
+<h2 class="inf-heading">Algunos de los temas que discutimos</h2>
+</div>
+<ul class="inf-topics">
+<li class="inf-topic">Cómo hacer que tu equipo adopte IA</li>
+<li class="inf-topic">Cómo cambia el ciclo de desarrollo de software</li>
+<li class="inf-topic">Physical AI</li>
+<li class="inf-topic">Qué es tendencia en negocios</li>
+<li class="inf-topic">Cómo aprovechar los datos de tu empresa</li>
+</ul>
+</div>
+</section>
+
+<section class="inf-section" id="preguntas">
+<div class="inf-split">
+<div class="inf-split__lead">
+<h2 class="inf-heading">Preguntas frecuentes</h2>
+</div>
+<div class="inf-faq">
+<details class="inf-faq__item" open>
+<summary class="inf-faq__q">¿Cuánto cuesta?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
+<p class="inf-faq__a">Nada. Inference es gratis; solo hay que aplicar.</p>
+</details>
+<details class="inf-faq__item">
+<summary class="inf-faq__q">¿Es un curso?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
+<p class="inf-faq__a">No. Es una comunidad: aprendes de lo que otros líderes están haciendo en sus empresas, no de un temario. No hay clases, tareas ni certificados.</p>
+</details>
+<details class="inf-faq__item">
+<summary class="inf-faq__q">¿Necesito experiencia con IA?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
+<p class="inf-faq__a">No. No necesitas saber programar ni haber usado IA antes. Necesitas tener gente a cargo y un problema real que quieras resolver.</p>
+</details>
+<details class="inf-faq__item">
+<summary class="inf-faq__q">¿Puedo ofrecer mis servicios en la comunidad?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
+<p class="inf-faq__a">No. Inference no es un grupo para vender ni para conseguir clientes. Los mensajes de venta no están permitidos.</p>
+</details>
+<details class="inf-faq__item">
+<summary class="inf-faq__q">¿Por qué hay que aplicar?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
+<p class="inf-faq__a">Para que el grupo sea pequeño y las conversaciones sean entre personas en una situación parecida. Revisamos cada aplicación a mano.</p>
+</details>
+<details class="inf-faq__item">
+<summary class="inf-faq__q">¿Qué pasa después de aplicar?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
+<p class="inf-faq__a">Te respondemos por correo. Si entras, recibes la invitación a las próximas sesiones y eventos.</p>
+</details>
+<details class="inf-faq__item">
+<summary class="inf-faq__q">¿Las sesiones son en línea?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
+<p class="inf-faq__a">Sí. Los eventos presenciales son en distintas ciudades y tienen cupo limitado.</p>
+</details>
+</div>
+</div>
+</section>
+
+<section class="inf-section" id="aplicar">
+<div class="inf-split">
+<div class="inf-split__lead">
+<h2 class="inf-heading">Aplicar</h2>
+<p class="inf-title">Buscamos líderes que están llevando la IA a su empresa.</p>
+<ol class="inf-criteria">
+<li class="inf-criteria__item"><span class="inf-criteria__num">1</span><span>Tienes gente a cargo.</span></li>
+<li class="inf-criteria__item"><span class="inf-criteria__num">2</span><span>Tu empresa ya opera: clientes, equipo y facturación.</span></li>
+<li class="inf-criteria__item"><span class="inf-criteria__num">3</span><span>Tienes un proceso concreto que quieres mover con IA.</span></li>
+</ol>
+</div>
+<form class="inf-form" aria-label="Aplicación a Inference">
+<div class="inf-form__grid">
+<div class="inf-field">
+<label class="inf-field__label" for="ap-nombre">Nombre y apellido</label>
+<input class="inf-input" id="ap-nombre" name="nombre" type="text" autocomplete="name" required>
+</div>
+<div class="inf-field">
+<label class="inf-field__label" for="ap-correo">Correo de trabajo</label>
+<input class="inf-input" id="ap-correo" name="correo" type="email" autocomplete="email" required>
+</div>
+<div class="inf-field">
+<label class="inf-field__label" for="ap-empresa">Empresa</label>
+<input class="inf-input" id="ap-empresa" name="empresa" type="text" autocomplete="organization" required>
+</div>
+<div class="inf-field">
+<label class="inf-field__label" for="ap-cargo">Cargo</label>
+<input class="inf-input" id="ap-cargo" name="cargo" type="text" autocomplete="organization-title" required>
+</div>
+<div class="inf-field">
+<label class="inf-field__label" for="ap-pais">País</label>
+<input class="inf-input" id="ap-pais" name="pais" type="text" autocomplete="country-name" required>
+</div>
+<div class="inf-field">
+<label class="inf-field__label" for="ap-equipo">Personas a cargo</label>
+<div class="inf-select-wrap">
+<select class="inf-select" id="ap-equipo" name="equipo" required>
+<option value="">Elige una opción</option>
+<option>1 a 5</option>
+<option>6 a 20</option>
+<option>21 a 100</option>
+<option>Más de 100</option>
+</select>
+</div>
+</div>
+<div class="inf-field">
+<label class="inf-field__label" for="ap-whatsapp">WhatsApp</label>
+<input class="inf-input" id="ap-whatsapp" name="whatsapp" type="tel" autocomplete="tel" placeholder="+57 300 000 0000" required>
+</div>
+<div class="inf-field">
+<label class="inf-field__label" for="ap-linkedin">Perfil de LinkedIn</label>
+<input class="inf-input" id="ap-linkedin" name="linkedin" type="text" inputmode="url" placeholder="linkedin.com/in/…" required>
+</div>
+<div class="inf-field inf-field--full">
+<label class="inf-field__label" for="ap-ia">¿Qué quieres resolver con IA en tu empresa?</label>
+<p class="inf-field__hint" id="ap-ia-ayuda">Un proceso, un área o un problema concreto.</p>
+<textarea class="inf-textarea" id="ap-ia" name="ia" rows="4" aria-describedby="ap-ia-ayuda" required></textarea>
+</div>
+<div class="inf-field inf-field--full">
+<label class="inf-field__label" for="ap-aporte">¿Qué podrías compartir con otros miembros? <span class="inf-field__opt">(opcional)</span></label>
+<textarea class="inf-textarea" id="ap-aporte" name="aporte" rows="3"></textarea>
+</div>
+</div>
+<div class="inf-form__actions">
+<button class="inf-btn inf-btn--primary" type="button" data-submit>Enviar aplicación</button>
+<p class="inf-small">Revisamos cada aplicación a mano y respondemos por correo.</p>
+</div>
+<div data-sent hidden>
+<p class="inf-form__status" role="status">Gracias. Recibimos tu aplicación y te escribimos por correo.</p>
+</div>
+</form>
+</div>
+</section>
+
+<footer class="inf-footer">
+<a class="inf-wordmark" href="#top" aria-label="Volver arriba"><span class="inf-wordmark__name">Inference<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">by Aiyaiyai</span></a>
+<span>© 2026 Aiyaiyai</span>
+</footer>
+</div>
+
+</main>
+<script>
+document.querySelectorAll('[data-submit]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var f = b.form; if (f && !f.reportValidity()) return;
+    if (f) f.reset();
+    var s = f && f.querySelector('[data-sent]'); if (s) s.hidden = false;
+  });
+});
+document.querySelectorAll('[data-days]').forEach(function (el) {
+  var d = Math.ceil((new Date('2026-11-16T00:00:00-06:00') - Date.now()) / 86400000);
+  if (d > 0) { el.querySelector('[data-days-n]').textContent = d; el.hidden = false; }
+});
+</script>
+</body>
+</html>

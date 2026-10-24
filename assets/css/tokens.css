@@ -1,0 +1,75 @@
+/* Inference by Aiyaiyai — generated from tokens.json */
+:root, [data-theme="claro"] {
+  --tinta-950: #121411;
+  --tinta-900: #1b1e1a;
+  --tinta-700: #2a2d28;
+  --gris-600: #5e625b;
+  --gris-500: #80847d;
+  --gris-400: #a3a79f;
+  --gris-200: #d9dbd4;
+  --gris-100: #ebece7;
+  --papel: #f4f5f2;
+  --blanco: #ffffff;
+  --verde-700: #0e6b43;
+  --verde-400: #5bc896;
+  --verde-100: #dcefe4;
+  --verde-900: #12301f;
+  --surface: var(--papel);
+  --surface-raised: var(--gris-100);
+  --ink: var(--tinta-950);
+  --ink-muted: var(--gris-600);
+  --line: var(--gris-200);
+  --line-strong: var(--gris-500);
+  --accent: var(--verde-700);
+  --on-accent: var(--blanco);
+  --field: var(--blanco);
+  --accent-tint: var(--verde-100);
+  --focus: var(--verde-700);
+}
+[data-theme="oscuro"] {
+  --surface: var(--tinta-950);
+  --surface-raised: var(--tinta-900);
+  --ink: var(--papel);
+  --ink-muted: var(--gris-400);
+  --line: var(--tinta-700);
+  --line-strong: var(--gris-500);
+  --accent: var(--verde-400);
+  --on-accent: var(--tinta-950);
+  --field: var(--tinta-900);
+  --accent-tint: var(--verde-900);
+  --focus: var(--verde-400);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --radius-0: 0;
+  --radius-sm: 2px;
+  --radius-pill: 999px;
+  --content-max: 1120px;
+  --measure: 680px;
+  --page-margin: 40px;
+  --control-height: 44px;
+  --slide-height: 440px;
+  --hairline: 1px;
+  --logo-rest: 0.55;
+  --logo-hover: 1;
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --font-logo: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+}
+.display { font-family: var(--font-serif); font-size: 56px; line-height: 1.08; font-weight: 400; letter-spacing: -0.02em; }
+.title { font-family: var(--font-serif); font-size: 36px; line-height: 1.15; font-weight: 400; letter-spacing: -0.015em; }
+.heading { font-family: var(--font-sans); font-size: 18px; line-height: 1.35; font-weight: 500; letter-spacing: -0.005em; }
+.lead { font-family: var(--font-sans); font-size: 19px; line-height: 1.55; font-weight: 400; }
+.body { font-family: var(--font-sans); font-size: 16px; line-height: 1.6; font-weight: 400; }
+.small { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; font-weight: 400; }
+.button { font-family: var(--font-sans); font-size: 15px; line-height: 1; font-weight: 500; }
+.wordmark { font-family: var(--font-logo); font-size: 24px; line-height: 1; font-weight: 600; letter-spacing: -0.04em; }
