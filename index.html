@@ -3,24 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inference by Aiyaiyai</title>
+<title>SIS — Super Intelligence Society by AiYaiYai</title>
 <meta name="description" content="Comunidad privada donde líderes que están adoptando IA comparten qué les funciona y qué no.">
+<link rel="icon" type="image/svg+xml" href="assets/img/sis-logo.svg">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/bundle.css">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;family=Geist:wght@400;500&amp;family=Instrument+Sans:wght@600&amp;display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:var(--surface);-webkit-font-smoothing:antialiased}
 a{color:var(--ink)}
-.art-cover{position:relative;isolation:isolate;overflow:hidden;background:var(--surface)}
-.art-cover__img{position:absolute;inset:0;z-index:-2;display:block;width:100%;height:100%;object-fit:cover;object-position:center bottom}
-.art-cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--surface) 0%,rgba(244,245,242,.85) 22%,rgba(244,245,242,0) 55%),linear-gradient(90deg,rgba(244,245,242,.9) 0%,rgba(244,245,242,.55) 38%,rgba(244,245,242,0) 62%)}
-.art-cover .inf-hero{padding-bottom:clamp(240px,26vw,400px)}
+#top.inf-hero{padding-bottom:var(--space-12)}
+#eventos .inf-section--head{border-top:0;padding-top:var(--space-12)}
+.hero-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-6);margin:0 0 var(--space-8);padding:var(--space-6) 0 0;border-top:var(--hairline) solid var(--line)}
+.hero-fact{display:flex;flex-direction:column;gap:var(--space-1);margin:0}
+.hero-fact dt{font-family:var(--font-sans);font-size:14px;color:var(--ink-muted)}
+.hero-fact dd{margin:0;font-family:var(--font-sans);font-size:17px;font-weight:500;line-height:1.4;color:var(--ink)}
+@media (max-width:800px){.hero-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .split-art{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-sm);margin-top:var(--space-2)}
-@media (max-width:800px){.art-cover::before{background:linear-gradient(180deg,var(--surface) 0%,rgba(244,245,242,.9) 45%,rgba(244,245,242,0) 75%)}.art-cover .inf-hero{padding-bottom:220px}}
-.art-cover--main::before{display:none}
-.art-cover--main .art-cover__img{top:auto;bottom:0;height:540px;object-position:center 62%;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 38%);mask-image:linear-gradient(180deg,transparent 0%,#000 38%)}
-.art-cover--main .inf-hero{padding-bottom:440px}
-@media (max-width:800px){.art-cover--main .art-cover__img{height:340px}.art-cover--main .inf-hero{padding-bottom:260px}}
 .inf-topics{margin:0;padding:0;list-style:none;border-top:var(--hairline) solid var(--line)}
 .inf-topic{padding:var(--space-4) 0;border-bottom:var(--hairline) solid var(--line);font-family:var(--font-sans);font-size:17px;line-height:1.5;color:var(--ink)}
 @media (min-width:801px){.inf-feature{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:var(--space-2)}}
@@ -41,11 +40,9 @@ a{color:var(--ink)}
 <body>
 <main class="inf-page" style="width: 100%">
 
-<div class="art-cover art-cover--main">
-<img class="art-cover__img" src="assets/img/starship.jpg" width="2576" height="1449" alt="">
 <div class="inf-container">
 <header class="inf-nav">
-<a class="inf-wordmark" href="#top" aria-label="Inference by Aiyaiyai, inicio"><span class="inf-wordmark__name">Inference<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">by Aiyaiyai</span></a>
+<a class="inf-wordmark" href="#top" aria-label="SIS, Super Intelligence Society by AiYaiYai, inicio"><span class="inf-wordmark__name">SIS<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">Super Intelligence Society<span>by AiYaiYai</span></span></a>
 <nav class="inf-nav__links" aria-label="Principal">
 <a class="inf-nav__link" href="#proximos">Próximos eventos</a>
 <a class="inf-nav__link" href="#que-incluye">Qué incluye</a>
@@ -61,7 +58,12 @@ a{color:var(--ink)}
 <a class="inf-btn inf-btn--primary" href="#aplicar">Aplicar</a>
 </div>
 </section>
-</div>
+<dl class="hero-facts">
+<div class="hero-fact"><dt>Para</dt><dd>Managers, C-Levels y Founders</dd></div>
+<div class="hero-fact"><dt>Costo</dt><dd>Gratis</dd></div>
+<div class="hero-fact"><dt>Acceso</dt><dd>Por aplicación</dd></div>
+<div class="hero-fact"><dt>Alcance</dt><dd>Global</dd></div>
+</dl>
 </div>
 
 <section id="eventos" aria-labelledby="eventos-titulo">
@@ -156,7 +158,7 @@ a{color:var(--ink)}
 <div class="inf-faq">
 <details class="inf-faq__item" open>
 <summary class="inf-faq__q">¿Cuánto cuesta?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
-<p class="inf-faq__a">Nada. Inference es gratis; solo hay que aplicar.</p>
+<p class="inf-faq__a">Nada. SIS es gratis; solo hay que aplicar.</p>
 </details>
 <details class="inf-faq__item">
 <summary class="inf-faq__q">¿Es un curso?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
@@ -168,7 +170,7 @@ a{color:var(--ink)}
 </details>
 <details class="inf-faq__item">
 <summary class="inf-faq__q">¿Puedo ofrecer mis servicios en la comunidad?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
-<p class="inf-faq__a">No. Inference no es un grupo para vender ni para conseguir clientes. Los mensajes de venta no están permitidos.</p>
+<p class="inf-faq__a">No. SIS no es un grupo para vender ni para conseguir clientes. Los mensajes de venta no están permitidos.</p>
 </details>
 <details class="inf-faq__item">
 <summary class="inf-faq__q">¿Por qué hay que aplicar?<span class="inf-faq__icon" aria-hidden="true"></span></summary>
@@ -197,7 +199,7 @@ a{color:var(--ink)}
 <li class="inf-criteria__item"><span class="inf-criteria__num">3</span><span>Tienes un proceso concreto que quieres mover con IA.</span></li>
 </ol>
 </div>
-<form class="inf-form" aria-label="Aplicación a Inference">
+<form class="inf-form" aria-label="Aplicación a SIS">
 <div class="inf-form__grid">
 <div class="inf-field">
 <label class="inf-field__label" for="ap-nombre">Nombre y apellido</label>
@@ -283,8 +285,8 @@ a{color:var(--ink)}
 </section>
 
 <footer class="inf-footer">
-<a class="inf-wordmark" href="#top" aria-label="Volver arriba"><span class="inf-wordmark__name">Inference<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">by Aiyaiyai</span></a>
-<span>© 2026 Aiyaiyai</span>
+<a class="inf-wordmark" href="#top" aria-label="Volver arriba"><span class="inf-wordmark__name">SIS<span class="inf-wordmark__dot"></span></span><span class="inf-wordmark__by">Super Intelligence Society<span>by AiYaiYai</span></span></a>
+<span>© 2026 AiYaiYai</span>
 </footer>
 </div>
 

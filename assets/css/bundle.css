@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Geist:wght@400;500&family=Instrument+Sans:wght@600&display=swap");
 
-/* Inference by Aiyaiyai — componentes. Todo valor sale de tokens.css. */
+/* Super Intelligence Society (SIS) by AiYaiYai — componentes. Todo valor sale de tokens.css. */
 
 /* Página y contenedor */
 .inf-page { min-height: 100%; background: var(--surface); color: var(--ink); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; }
@@ -8,12 +8,15 @@
 @media (max-width: 640px) { .inf-container { padding-left: 20px; padding-right: 20px; } }
 
 /* Logo */
-.inf-wordmark { display: inline-flex; align-items: baseline; gap: 10px; color: var(--ink); text-decoration: none; }
-.inf-wordmark__name { font-family: var(--font-logo); font-size: 24px; font-weight: 600; line-height: 1; letter-spacing: -0.04em; text-transform: none; color: var(--ink); }
+.inf-wordmark { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+.inf-wordmark__name { font-family: var(--font-logo); font-size: 26px; font-weight: 600; line-height: 1; letter-spacing: -0.04em; text-transform: none; color: var(--ink); }
 .inf-wordmark__dot { display: inline-block; width: 0.26em; height: 0.26em; margin-left: 0.05em; border-radius: var(--radius-pill); background: var(--accent); }
-.inf-wordmark__by { font-family: var(--font-sans); font-size: 11px; font-weight: 500; line-height: 1; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); }
-.inf-wordmark--lg .inf-wordmark__name { font-size: 44px; }
-.inf-wordmark--lg .inf-wordmark__by { font-size: 13px; }
+.inf-wordmark__by { display: flex; flex-direction: column; justify-content: center; gap: 4px; padding-left: 12px; border-left: var(--hairline) solid var(--line-strong); font-family: var(--font-sans); font-size: 10.5px; font-weight: 500; line-height: 1; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+.inf-wordmark__by > span { font-size: 11px; font-weight: 400; letter-spacing: 0.01em; text-transform: none; color: var(--ink-muted); }
+.inf-wordmark--lg { gap: 18px; }
+.inf-wordmark--lg .inf-wordmark__name { font-size: 48px; }
+.inf-wordmark--lg .inf-wordmark__by { gap: 6px; padding-left: 18px; font-size: 13px; }
+.inf-wordmark--lg .inf-wordmark__by > span { font-size: 14px; }
 .inf-wordmark:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 2px; }
 
 /* Navegación */

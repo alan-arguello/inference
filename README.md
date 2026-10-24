@@ -1,6 +1,6 @@
 # inference
 
-Sitio estático de Inference by Aiyaiyai.
+Sitio estático de SIS — Super Intelligence Society by AiYaiYai.
 
 - `index.html`: landing de la comunidad.
 - `silicon-valley/index.html`: programa inmersivo en San Francisco (próximamente).
