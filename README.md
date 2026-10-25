@@ -13,4 +13,13 @@ Sitio estático de SIS — Super Intelligence Society by AiYaiYai.
 
 No necesita build: se puede publicar tal cual en GitHub Pages, Vercel o Netlify.
 
-Pendiente: los formularios son prototipos (validan y muestran confirmación, pero no envían datos). Conéctalos a tu herramienta de formularios o pagos.
+## Formularios (Supabase)
+
+Los dos formularios guardan en el proyecto de Supabase **SIS** (`vfenkhnmcetmkgxnpanr`):
+
+- `sis_applications`: aplicaciones a la comunidad (página principal).
+- `sv_reservations`: lugares apartados para Silicon Valley Immersion 2027.
+
+El sitio usa la llave pública (publishable) y solo puede **insertar**: con esa llave nadie puede leer, editar ni borrar registros (RLS). Los registros se ven en Supabase → Table Editor, donde también se pueden exportar a CSV. Un correo solo puede registrarse una vez por formulario. El esquema está en `supabase/migrations/`.
+
+Columnas internas para el seguimiento: `estado` (`nueva`, `en_revision`, `aceptada`, `rechazada` en aplicaciones; `nueva`, `contactada`, `pago_pendiente`, `pagada`, `cancelada` en Silicon Valley) y `notas`. También se guardan `pagina`, `referrer` y los `utm_*` para saber de dónde llega cada registro.

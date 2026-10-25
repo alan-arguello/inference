@@ -235,11 +235,44 @@ a{color:var(--ink)}
 </div>
 </main>
 <script>
+var SB_URL = 'https://vfenkhnmcetmkgxnpanr.supabase.co';
+var SB_KEY = 'sb_publishable_7IcpFdZIpxsLlgycyx-_-A_kWIwvicb';
 document.querySelectorAll('[data-submit]').forEach(function (b) {
+  var f = b.form; if (!f) return;
+  var table = f.getAttribute('data-table');
+  var ok = f.querySelector('[data-sent]');
+  var err = document.createElement('p'); err.className = 'inf-form__status'; err.setAttribute('role', 'alert'); err.setAttribute('data-state', 'error'); err.hidden = true;
+  f.appendChild(err);
+  var label = b.textContent;
   b.addEventListener('click', function () {
-    var f = b.form; if (f && !f.reportValidity()) return;
-    if (f) f.reset();
-    var s = f && f.querySelector('[data-sent]'); if (s) s.hidden = false;
+    err.hidden = true;
+    if (!f.reportValidity()) return;
+    var data = {};
+    new FormData(f).forEach(function (v, k) { v = String(v).trim(); if (k !== 'sitio') data[k] = v === '' ? null : v; });
+    if (f.elements.sitio && f.elements.sitio.value) { f.reset(); if (ok) ok.hidden = false; return; }
+    var q = new URLSearchParams(location.search);
+    data.pagina = location.pathname.slice(0, 300);
+    data.referrer = document.referrer ? document.referrer.slice(0, 500) : null;
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { data[k] = q.get(k) ? q.get(k).slice(0, 120) : null; });
+    b.disabled = true; b.textContent = 'Enviando…';
+    fetch(SB_URL + '/rest/v1/' + table, {
+      method: 'POST',
+      headers: { 'apikey': SB_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify(data)
+    }).then(function (r) {
+      if (r.ok || r.status === 409) {
+        f.reset();
+        if (ok) { if (r.status === 409) ok.querySelector('p').textContent = 'Ya teníamos tu registro con este correo. Te escribimos pronto.'; ok.hidden = false; }
+        if (window.gtag) window.gtag('event', 'generate_lead', { form: table });
+      } else {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          err.textContent = j && j.code === '23514' ? 'Revisa los datos: algún campo está incompleto o no tiene el formato correcto.' : 'No pudimos enviar tu registro. Intenta de nuevo en un momento.';
+          err.hidden = false;
+        });
+      }
+    }).catch(function () {
+      err.textContent = 'No pudimos enviar tu registro. Revisa tu conexión e intenta de nuevo.'; err.hidden = false;
+    }).then(function () { b.disabled = false; b.textContent = label; });
   });
 });
 document.querySelectorAll('[data-days]').forEach(function (el) {
