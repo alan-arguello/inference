@@ -297,36 +297,36 @@ a{color:var(--ink)}
 <div class="inf-form__grid">
 <div class="inf-field">
 <label class="inf-field__label" for="ap-nombre">Nombre y apellido</label>
-<input class="inf-input" id="ap-nombre" name="nombre" type="text" minlength="2" maxlength="120" autocomplete="name" required>
+<input class="inf-input" id="ap-nombre" data-name="tu nombre" name="nombre" type="text" minlength="2" maxlength="120" autocomplete="name" required>
 </div>
 <div class="inf-field">
 <label class="inf-field__label" for="ap-correo">Correo de trabajo</label>
-<input class="inf-input" id="ap-correo" name="correo" type="email" autocomplete="email" required>
+<input class="inf-input" id="ap-correo" data-name="tu correo" name="correo" type="email" autocomplete="email" required>
 </div>
 <div class="inf-field">
 <label class="inf-field__label" for="ap-empresa">Empresa</label>
-<input class="inf-input" id="ap-empresa" name="empresa" type="text" autocomplete="organization" required>
+<input class="inf-input" id="ap-empresa" data-name="tu empresa" name="empresa" type="text" autocomplete="organization" required>
 </div>
 <div class="inf-field">
 <label class="inf-field__label" for="ap-cargo">Cargo</label>
-<input class="inf-input" id="ap-cargo" name="cargo" type="text" autocomplete="organization-title" required>
+<input class="inf-input" id="ap-cargo" data-name="tu cargo" name="cargo" type="text" autocomplete="organization-title" required>
 </div>
 <div class="inf-field">
 <label class="inf-field__label" for="ap-pais">País</label>
-<input class="inf-input" id="ap-pais" name="pais" type="text" autocomplete="country-name" required>
+<input class="inf-input" id="ap-pais" data-name="tu país" name="pais" type="text" autocomplete="country-name" required>
 </div>
 <div class="inf-field">
 <label class="inf-field__label" for="ap-whatsapp">WhatsApp</label>
-<input class="inf-input" id="ap-whatsapp" name="whatsapp" type="tel" pattern="[0-9+\s\(\)\-\.]{7,25}" title="Número con indicativo, por ejemplo +57 300 000 0000" autocomplete="tel" placeholder="+57 300 000 0000" required>
+<input class="inf-input" id="ap-whatsapp" data-name="tu WhatsApp" name="whatsapp" type="tel" pattern="[0-9+\s\(\)\-\.]{7,25}" title="Número con indicativo, por ejemplo +57 300 000 0000" autocomplete="tel" placeholder="+57 300 000 0000" required>
 </div>
 <div class="inf-field inf-field--full">
 <label class="inf-field__label" for="ap-linkedin">Perfil de LinkedIn</label>
-<input class="inf-input" id="ap-linkedin" name="linkedin" type="text" minlength="5" maxlength="300" inputmode="url" placeholder="linkedin.com/in/…" required>
+<input class="inf-input" id="ap-linkedin" data-name="tu perfil de LinkedIn" name="linkedin" type="text" minlength="5" maxlength="300" inputmode="url" placeholder="linkedin.com/in/…" required>
 </div>
 <div class="inf-field inf-field--full">
 <label class="inf-field__label" for="ap-ia">¿Qué retos estás enfrentando con IA o qué temas te interesan?</label>
 <p class="inf-field__hint" id="ap-ia-ayuda">Por ejemplo: que tu equipo adopte IA, automatizar un proceso, usar los datos de tu empresa o entender hacia dónde va todo esto.</p>
-<textarea class="inf-textarea" id="ap-ia" name="retos" minlength="3" maxlength="4000" rows="4" aria-describedby="ap-ia-ayuda" required></textarea>
+<textarea class="inf-textarea" id="ap-ia" data-name="tu respuesta" name="retos" minlength="3" maxlength="4000" rows="4" aria-describedby="ap-ia-ayuda" required></textarea>
 </div>
 <div class="inf-field inf-field--full">
 <label class="inf-field__label" for="ap-aporte">¿Qué podrías compartir con otros miembros? <span class="inf-field__opt">(opcional)</span></label>
@@ -337,8 +337,19 @@ a{color:var(--ink)}
 <button class="inf-btn inf-btn--primary" type="button" data-submit>Enviar aplicación</button>
 <p class="inf-small">Revisamos cada aplicación a mano y respondemos por correo.</p>
 </div>
-<div data-sent hidden>
-<p class="inf-form__status" role="status">Gracias. Recibimos tu aplicación y te escribimos por correo.</p>
+<div class="inf-form__done" data-sent hidden aria-live="polite">
+<span class="inf-form__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<h3 class="inf-form__done-title" data-title data-new="Recibimos tu aplicación." data-dup="Ya teníamos tu aplicación.">Recibimos tu aplicación.</h3>
+<p class="inf-form__done-body" data-new-only>Gracias por aplicar. Te respondemos a <strong data-fill="correo"></strong>.</p>
+<p class="inf-form__done-body" data-dup-only hidden>Este correo ya estaba registrado, así que no hace falta enviarla otra vez. Te respondemos a <strong data-fill="correo"></strong>.</p>
+<ol class="inf-form__steps">
+<li>Revisamos cada aplicación a mano.</li>
+<li>Te respondemos por correo.</li>
+</ol>
+<div class="inf-form__done-links">
+<a class="inf-btn inf-btn--primary" href="https://www.aiyaiyai.io" target="_blank" rel="noopener">Ver el evento en Bogotá</a>
+<a class="inf-btn inf-btn--secondary" href="#escribimos">Leer lo que escribimos</a>
+</div>
 </div>
 </form>
 </div>
@@ -374,46 +385,6 @@ a{color:var(--ink)}
 
 </main>
 <script>
-var SB_URL = 'https://vfenkhnmcetmkgxnpanr.supabase.co';
-var SB_KEY = 'sb_publishable_7IcpFdZIpxsLlgycyx-_-A_kWIwvicb';
-document.querySelectorAll('[data-submit]').forEach(function (b) {
-  var f = b.form; if (!f) return;
-  var table = f.getAttribute('data-table');
-  var ok = f.querySelector('[data-sent]');
-  var err = document.createElement('p'); err.className = 'inf-form__status'; err.setAttribute('role', 'alert'); err.setAttribute('data-state', 'error'); err.hidden = true;
-  f.appendChild(err);
-  var label = b.textContent;
-  b.addEventListener('click', function () {
-    err.hidden = true;
-    if (!f.reportValidity()) return;
-    var data = {};
-    new FormData(f).forEach(function (v, k) { v = String(v).trim(); if (k !== 'sitio') data[k] = v === '' ? null : v; });
-    if (f.elements.sitio && f.elements.sitio.value) { f.reset(); if (ok) ok.hidden = false; return; }
-    var q = new URLSearchParams(location.search);
-    data.pagina = location.pathname.slice(0, 300);
-    data.referrer = document.referrer ? document.referrer.slice(0, 500) : null;
-    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { data[k] = q.get(k) ? q.get(k).slice(0, 120) : null; });
-    b.disabled = true; b.textContent = 'Enviando…';
-    fetch(SB_URL + '/rest/v1/' + table, {
-      method: 'POST',
-      headers: { 'apikey': SB_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-      body: JSON.stringify(data)
-    }).then(function (r) {
-      if (r.ok || r.status === 409) {
-        f.reset();
-        if (ok) { if (r.status === 409) ok.querySelector('p').textContent = 'Ya teníamos tu registro con este correo. Te escribimos pronto.'; ok.hidden = false; }
-        if (window.gtag) window.gtag('event', 'generate_lead', { form: table });
-      } else {
-        return r.json().catch(function () { return {}; }).then(function (j) {
-          err.textContent = j && j.code === '23514' ? 'Revisa los datos: algún campo está incompleto o no tiene el formato correcto.' : 'No pudimos enviar tu registro. Intenta de nuevo en un momento.';
-          err.hidden = false;
-        });
-      }
-    }).catch(function () {
-      err.textContent = 'No pudimos enviar tu registro. Revisa tu conexión e intenta de nuevo.'; err.hidden = false;
-    }).then(function () { b.disabled = false; b.textContent = label; });
-  });
-});
 document.querySelectorAll('[data-days]').forEach(function (el) {
   var d = Math.ceil((new Date('2026-11-16T00:00:00-06:00') - Date.now()) / 86400000);
   if (d > 0) { el.querySelector('[data-days-n]').textContent = d; el.hidden = false; }
@@ -438,5 +409,7 @@ document.querySelectorAll('[data-yt]').forEach(function (a) {
   });
 });
 </script>
+<script src="assets/js/forms.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

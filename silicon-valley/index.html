@@ -282,19 +282,19 @@ img.sv-guest__avatar{object-fit:cover}
 <div class="inf-form__grid">
 <div class="inf-field">
 <label class="inf-field__label" for="sv-nombre">Nombre y apellido</label>
-<input class="inf-input" id="sv-nombre" name="nombre" type="text" minlength="2" maxlength="120" autocomplete="name" required>
+<input class="inf-input" id="sv-nombre" data-name="tu nombre" name="nombre" type="text" minlength="2" maxlength="120" autocomplete="name" required>
 </div>
 <div class="inf-field">
 <label class="inf-field__label" for="sv-correo">Correo</label>
-<input class="inf-input" id="sv-correo" name="correo" type="email" autocomplete="email" required>
+<input class="inf-input" id="sv-correo" data-name="tu correo" name="correo" type="email" autocomplete="email" required>
 </div>
 <div class="inf-field">
 <label class="inf-field__label" for="sv-whatsapp">WhatsApp</label>
-<input class="inf-input" id="sv-whatsapp" name="whatsapp" type="tel" pattern="[0-9+\s\(\)\-\.]{7,25}" title="Número con indicativo, por ejemplo +57 300 000 0000" autocomplete="tel" placeholder="+57 300 000 0000" required>
+<input class="inf-input" id="sv-whatsapp" data-name="tu WhatsApp" name="whatsapp" type="tel" pattern="[0-9+\s\(\)\-\.]{7,25}" title="Número con indicativo, por ejemplo +57 300 000 0000" autocomplete="tel" placeholder="+57 300 000 0000" required>
 </div>
 <div class="inf-field">
 <label class="inf-field__label" for="sv-linkedin">Perfil de LinkedIn</label>
-<input class="inf-input" id="sv-linkedin" name="linkedin" type="text" minlength="5" maxlength="300" inputmode="url" placeholder="linkedin.com/in/…" required>
+<input class="inf-input" id="sv-linkedin" data-name="tu perfil de LinkedIn" name="linkedin" type="text" minlength="5" maxlength="300" inputmode="url" placeholder="linkedin.com/in/…" required>
 </div>
 <div class="inf-field inf-field--full">
 <label class="inf-field__label" for="sv-proyecto">¿Qué estás construyendo? <span class="inf-field__opt">(opcional)</span></label>
@@ -304,8 +304,14 @@ img.sv-guest__avatar{object-fit:cover}
 <div class="inf-form__actions">
 <button class="inf-btn inf-btn--primary" type="button" data-submit>Apartar mi lugar</button>
 </div>
-<div data-sent hidden>
-<p class="inf-form__status" role="status">Listo. Te escribimos por correo y WhatsApp con los pasos para pagar.</p>
+<div class="inf-form__done" data-sent hidden aria-live="polite">
+<span class="inf-form__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<h3 class="inf-form__done-title" data-title data-new="Recibimos tu solicitud." data-dup="Ya teníamos tu solicitud.">Recibimos tu solicitud.</h3>
+<p class="inf-form__done-body" data-new-only>Te escribimos a <strong data-fill="correo"></strong> y por WhatsApp con los pasos para pagar y confirmar tu lugar.</p>
+<p class="inf-form__done-body" data-dup-only hidden>Este correo ya estaba registrado, así que no hace falta enviarla otra vez. Te escribimos a <strong data-fill="correo"></strong> y por WhatsApp.</p>
+<div class="inf-form__done-links">
+<a class="inf-btn inf-btn--secondary" href="../">Conocer SIS</a>
+</div>
 </div>
 </form>
 </div>
@@ -319,46 +325,6 @@ img.sv-guest__avatar{object-fit:cover}
 
 </main>
 <script>
-var SB_URL = 'https://vfenkhnmcetmkgxnpanr.supabase.co';
-var SB_KEY = 'sb_publishable_7IcpFdZIpxsLlgycyx-_-A_kWIwvicb';
-document.querySelectorAll('[data-submit]').forEach(function (b) {
-  var f = b.form; if (!f) return;
-  var table = f.getAttribute('data-table');
-  var ok = f.querySelector('[data-sent]');
-  var err = document.createElement('p'); err.className = 'inf-form__status'; err.setAttribute('role', 'alert'); err.setAttribute('data-state', 'error'); err.hidden = true;
-  f.appendChild(err);
-  var label = b.textContent;
-  b.addEventListener('click', function () {
-    err.hidden = true;
-    if (!f.reportValidity()) return;
-    var data = {};
-    new FormData(f).forEach(function (v, k) { v = String(v).trim(); if (k !== 'sitio') data[k] = v === '' ? null : v; });
-    if (f.elements.sitio && f.elements.sitio.value) { f.reset(); if (ok) ok.hidden = false; return; }
-    var q = new URLSearchParams(location.search);
-    data.pagina = location.pathname.slice(0, 300);
-    data.referrer = document.referrer ? document.referrer.slice(0, 500) : null;
-    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { data[k] = q.get(k) ? q.get(k).slice(0, 120) : null; });
-    b.disabled = true; b.textContent = 'Enviando…';
-    fetch(SB_URL + '/rest/v1/' + table, {
-      method: 'POST',
-      headers: { 'apikey': SB_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-      body: JSON.stringify(data)
-    }).then(function (r) {
-      if (r.ok || r.status === 409) {
-        f.reset();
-        if (ok) { if (r.status === 409) ok.querySelector('p').textContent = 'Ya teníamos tu registro con este correo. Te escribimos pronto.'; ok.hidden = false; }
-        if (window.gtag) window.gtag('event', 'generate_lead', { form: table });
-      } else {
-        return r.json().catch(function () { return {}; }).then(function (j) {
-          err.textContent = j && j.code === '23514' ? 'Revisa los datos: algún campo está incompleto o no tiene el formato correcto.' : 'No pudimos enviar tu registro. Intenta de nuevo en un momento.';
-          err.hidden = false;
-        });
-      }
-    }).catch(function () {
-      err.textContent = 'No pudimos enviar tu registro. Revisa tu conexión e intenta de nuevo.'; err.hidden = false;
-    }).then(function () { b.disabled = false; b.textContent = label; });
-  });
-});
 document.querySelectorAll('[data-days]').forEach(function (el) {
   var d = Math.ceil((new Date('2026-11-16T00:00:00-06:00') - Date.now()) / 86400000);
   if (d > 0) { el.querySelector('[data-days-n]').textContent = d; el.hidden = false; }
@@ -383,5 +349,7 @@ document.querySelectorAll('[data-yt]').forEach(function (a) {
   });
 });
 </script>
+<script src="../assets/js/forms.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

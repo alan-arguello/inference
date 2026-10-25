@@ -129,6 +129,38 @@
 .inf-form__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-6); }
 .inf-form__status { margin: 0; font-family: var(--font-sans); font-size: 15px; line-height: 1.5; color: var(--ink); }
 .inf-form__status:empty { display: none; }
+/* Estados del envío: error por campo, aviso general, enviando y confirmación. */
+.inf-form [hidden] { display: none !important; }
+.inf-form { --danger: #a3362a; --danger-tint: #f7e9e6; }
+.inf-field__error { display: flex; gap: 6px; margin: 0; font-family: var(--font-sans); font-size: 14px; line-height: 1.45; color: var(--danger); }
+.inf-field__error[hidden] { display: none; }
+.inf-input[aria-invalid="true"], .inf-textarea[aria-invalid="true"], .inf-select[aria-invalid="true"] { border-color: var(--danger); box-shadow: inset 0 0 0 1px var(--danger); }
+.inf-input[aria-invalid="true"]:focus-visible, .inf-textarea[aria-invalid="true"]:focus-visible { outline-color: var(--danger); }
+.inf-form__alert { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: var(--hairline) solid var(--danger); border-radius: var(--radius-sm); background: var(--danger-tint); color: var(--danger); animation: inf-in 240ms ease-out both; }
+.inf-form__alert[hidden] { display: none; }
+.inf-form__alert svg { flex: none; width: 20px; height: 20px; margin-top: 1px; }
+.inf-form__alert p { margin: 0; font-family: var(--font-sans); font-size: 15px; line-height: 1.5; color: var(--ink); }
+.inf-form[aria-busy="true"] .inf-input, .inf-form[aria-busy="true"] .inf-textarea { opacity: .6; }
+.inf-btn:disabled { cursor: progress; opacity: .85; }
+.inf-btn:disabled:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.inf-spinner { flex: none; width: 15px; height: 15px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: inf-spin 700ms linear infinite; }
+.inf-form__done { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); padding: var(--space-8); border: var(--hairline) solid var(--line); border-radius: var(--radius-sm); background: var(--field); outline: none; animation: inf-in 420ms cubic-bezier(.2,.7,.2,1) both; }
+.inf-form__done[hidden] { display: none; }
+.inf-form__check { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--accent-tint); color: var(--accent); }
+.inf-form__check svg { width: 24px; height: 24px; }
+.inf-form__check path { stroke-dasharray: 24; stroke-dashoffset: 24; animation: inf-draw 420ms 220ms ease-out forwards; }
+.inf-form__done-title { margin: 0; font-family: var(--font-serif); font-size: 28px; font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; color: var(--ink); }
+.inf-form__done-body { margin: 0; max-width: 34em; font-family: var(--font-sans); font-size: 16px; line-height: 1.6; color: var(--ink-muted); }
+.inf-form__done-body strong { font-weight: 500; color: var(--ink); word-break: break-word; }
+.inf-form__steps { display: grid; gap: var(--space-2); width: 100%; margin: 0; padding: var(--space-4) 0 0; border-top: var(--hairline) solid var(--line); list-style: none; counter-reset: paso; }
+.inf-form__steps li { display: flex; gap: var(--space-3); font-family: var(--font-sans); font-size: 15px; line-height: 1.5; color: var(--ink); counter-increment: paso; }
+.inf-form__steps li::before { content: counter(paso); flex: none; width: 16px; font-feature-settings: "tnum"; color: var(--accent); }
+.inf-form__done-links { display: flex; flex-wrap: wrap; gap: var(--space-3); padding-top: var(--space-2); }
+@keyframes inf-spin { to { transform: rotate(360deg); } }
+@keyframes inf-in { from { opacity: 0; transform: translateY(8px); } }
+@keyframes inf-draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .inf-form__done, .inf-form__alert, .inf-form__check path { animation: none; stroke-dashoffset: 0; } .inf-spinner { animation-duration: 2s; } }
+@media (max-width: 560px) { .inf-form__done { padding: var(--space-6); } .inf-form__done-title { font-size: 24px; } }
 @media (max-width: 560px) { .inf-form__grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* Pie */
