@@ -1,6 +1,6 @@
 # inference
 
-Sitio estático de SIS — Super Intelligence Society by AiYaiYai.
+Sitio estático de AINosVemos by AiYaiYai (antes SIS — Super Intelligence Society).
 
 - `index.html`: landing de la comunidad.
 - `silicon-valley/index.html`: programa inmersivo en San Francisco (próximamente).
@@ -15,7 +15,7 @@ No necesita build: se puede publicar tal cual en GitHub Pages, Vercel o Netlify.
 
 ## Formularios (Supabase)
 
-Los dos formularios guardan en el proyecto de Supabase **SIS** (`vfenkhnmcetmkgxnpanr`):
+Los dos formularios guardan en el proyecto de Supabase **SIS** (nombre anterior de la comunidad; el proyecto y las tablas conservan ese nombre) (`vfenkhnmcetmkgxnpanr`):
 
 - `sis_applications`: aplicaciones a la comunidad (página principal).
 - `sv_reservations`: lugares apartados para Silicon Valley Immersion 2027.

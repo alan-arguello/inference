@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Geist:wght@400;500&family=Instrument+Sans:wght@600&display=swap");
 
-/* Super Intelligence Society (SIS) by AiYaiYai — componentes. Todo valor sale de tokens.css. */
+/* AINosVemos by AiYaiYai — componentes. Todo valor sale de tokens.css. */
 
 /* Página y contenedor */
 .inf-page { min-height: 100%; background: var(--surface); color: var(--ink); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; }

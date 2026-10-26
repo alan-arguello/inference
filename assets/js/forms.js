@@ -1,4 +1,4 @@
-/* Formularios de SIS: validación en línea, estado de envío y confirmación.
+/* Formularios de AINosVemos: validación en línea, estado de envío y confirmación.
    Cada <form data-table="…"> guarda en esa tabla de Supabase (solo insertar,
    llave pública). Marcado que usa este archivo:
      [data-submit]     botón de envío
